@@ -9,12 +9,12 @@ namespace GeTime
 {
     public interface IControllerTimeSheet
     {
-        bool CompilaHL(DateTime giorno, int HL,int id,string commessa);
+        bool CompilaHL(DateTime giorno, int HL,string commessa,int id);
         bool CompilaHF(DateTime giorno, int HF,int id);
         bool CompilaHM(DateTime giorno, int HM, int id);
         bool CompilaHP(DateTime giorno, int HP, int id);
-        Giorno SearchGiorno(int id, DateTime dateTime);//Restituisce il giorno di una determinata persona per un tederminato datatime
-        List<Giorno> SearchTimeUtente(int id);//Restituisce l'ultimo mese di una determinata persona
+        Giorno SearchGiorno(DateTime dateTime,int id);//Restituisce il giorno di una determinata persona per un tederminato datatime
+        List<Giorno> SearchCommessa(string nomeCommessa,int id);//Restituisce la lista di giorni nei quali ho lavorato per quella commessa
          
     }
 
@@ -272,17 +272,29 @@ namespace GeTime
         public DateTime Data { get { return data; }}
         public int ID { get { return _id; }set { _id = value; }}
         public int ID_UTENTE {get { return _id_utente; }set { _id_utente = value; }}
+
+        public int HL { get{ return TotCom();  } }
+
+        private List<Commessa> comme;
         
 
         public Giorno(DateTime data){ this.data = data;}
-        public Giorno(DateTime data, int HL, int HP, int HM, int HF, int id, int id_utente){
+        public Giorno(DateTime data, int HP, int HM, int HF, int id, int id_utente){
             this.data = data;
-            ore[(int)HType.HL] = HL;
             ore[(int)HType.HP] = HP;
             ore[(int)HType.HM] = HM;
             ore[(int)HType.HF] = HF;
             _id = id;
             _id_utente = id_utente;
+        }
+        public void AddCommessa(Commessa com){ 
+            comme.Add(com);    
+        }
+        private int TotCom(){ 
+            int tot=0;
+            foreach(Commessa com in comme){
+                tot+=com.OreLavorate;
+           }            return tot;
         }
         public override bool Equals(object obj) {
             return data.Equals(((Giorno)obj).data);
@@ -298,6 +310,9 @@ namespace GeTime
         public int Capacita { get => _capacita; set => _capacita = value; }
         public string Descrizione { get => _descrizione; set => _descrizione = value; }
         public string Nome { get => _nome; set => _nome = value; }
+        public int OreLavorate { get => oreLavorate; set => oreLavorate = value; }
+
+        private int oreLavorate;
 
         private string _nome;
         private int _capacita;
