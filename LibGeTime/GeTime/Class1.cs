@@ -272,7 +272,7 @@ namespace GeTime
         public DateTime Data { get { return data; }}
         public int ID { get { return _id; }set { _id = value; }}
         public int ID_UTENTE {get { return _id_utente; }set { _id_utente = value; }}
-
+         
         public int HL { get{ return TotCom();  } }
 
 		public int[] Ore { get => ore; set => ore = value; }
@@ -281,6 +281,10 @@ namespace GeTime
         
 
         public Giorno(DateTime data){ this.data = data;}
+        public Giorno (DateTime data, int ore,Commessa commessaS){ 
+            this.data = data;
+            SearchComm(commessaS.Id).OreLavorate+=ore;
+        }
         public Giorno(DateTime data, int HP, int HM, int HF, int id, int id_utente){
             this.data = data;
             Ore[(int)HType.HP] = HP;
@@ -288,6 +292,13 @@ namespace GeTime
             Ore[(int)HType.HF] = HF;
             _id = id;
             _id_utente = id_utente;
+        }
+        public Commessa SearchComm(int id){ 
+            foreach (Commessa com in comme){ 
+                if (com.Id==id)
+                    return com;
+            } 
+            return null;
         }
         public void AddCommessa(Commessa com){ 
             comme.Add(com);    
@@ -343,6 +354,12 @@ namespace GeTime
                 return this.Nome.Equals(((Commessa)obj).Nome);
             return false;
         }
+
+        public Commessa(string nome,int oreLavorate) {
+            Nome = nome;
+            OreLavorate = oreLavorate;
+        }
+
         public override int GetHashCode(){
             return base.GetHashCode();
         }//cio
