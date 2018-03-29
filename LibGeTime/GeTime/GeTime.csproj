@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alex.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Drago.cs" />
-	<Compile Include="massimo.cs" />
+    <Compile Include="massimo.cs" />
     <Compile Include="nauman.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
