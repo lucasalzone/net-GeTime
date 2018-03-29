@@ -31,5 +31,3 @@ insert into TipologiaOre(descrizione,acronimo) values('Ore di permesso','HP');
 
 insert into TipologiaOre(descrizione,acronimo) values('Ore di malattia','HM');
 
-drop Database GeTime
-

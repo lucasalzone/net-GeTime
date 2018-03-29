@@ -11,12 +11,12 @@ namespace GeTime.Tests
 	[TestClass()]
 	public class ConntrollerTimeSheetTests
 	{
-        private ConntrollerTimeSheet cont = new ConntrollerTimeSheet("TestTimeSheet");
+        private ConntrollerTimeSheet cont = new ConntrollerTimeSheet("TestDB");
         [TestMethod()]
 		public void CompilaHLTest()
 		{
-			bool cavallo = cont.CompilaHL(DateTime.Today, 5, 10);
-			Assert.IsTrue(cavallo);
+			//bool cavallo = cont.CompilaHL(DateTime.Today, 5, 10);
+			//Assert.IsTrue(cavallo);
 		}
 
 		[TestMethod()]
@@ -29,7 +29,7 @@ namespace GeTime.Tests
 		[TestMethod()]
 		public void CompilaHMTest()
 		{
-			bool cavallo = cont.CompilaHM(DateTime.Today, 5, 10);
+			bool cavallo = cont.CompilaHM(DateTime.Today,5,3);
 			Assert.IsTrue(cavallo);
 		}
 
@@ -39,11 +39,11 @@ namespace GeTime.Tests
 			bool cavallo = cont.CompilaHP(DateTime.Today, 5, 10);
 			Assert.IsTrue(cavallo);
 		}
-		[ClassInitialize]
-		public static void InitClass(TestContext e)
-		{
-			ConntrollerTimeSheet.InitTest();
-		}
+		//[ClassInitialize]
+		//public static void InitClass(TestContext e)
+		//{
+			
+		//}
 		[TestInitialize]
 		public void InitMethod()
 		{
