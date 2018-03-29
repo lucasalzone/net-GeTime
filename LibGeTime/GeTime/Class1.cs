@@ -267,36 +267,27 @@ namespace GeTime
     {
         private int _id;
         private int _id_utente;
-        private int [] ore = new int[4];
+        private int [] ore = new int[3];
         private DateTime data;
         public DateTime Data { get { return data; }}
         public int ID { get { return _id; }set { _id = value; }}
         public int ID_UTENTE {get { return _id_utente; }set { _id_utente = value; }}
-         
+
         public int HL { get{ return TotCom();  } }
 
-        private List<Commessa> comme;
+		public int[] Ore { get => ore; set => ore = value; }
+
+		private List<Commessa> comme;
         
 
         public Giorno(DateTime data){ this.data = data;}
-        public Giorno (DateTime data, int ore,Commessa commessaS){ 
-            this.data = data;
-            SearchComm(commessaS.Id).OreLavorate+=ore;
-        }
         public Giorno(DateTime data, int HP, int HM, int HF, int id, int id_utente){
             this.data = data;
-            ore[(int)HType.HP] = HP;
-            ore[(int)HType.HM] = HM;
-            ore[(int)HType.HF] = HF;
+            Ore[(int)HType.HP] = HP;
+            Ore[(int)HType.HM] = HM;
+            Ore[(int)HType.HF] = HF;
             _id = id;
             _id_utente = id_utente;
-        }
-        public Commessa SearchComm(int id){ 
-            foreach (Commessa com in comme){ 
-                if (com.Id==id)
-                    return com;
-            } 
-            return null;
         }
         public void AddCommessa(Commessa com){ 
             comme.Add(com);    
@@ -352,12 +343,6 @@ namespace GeTime
                 return this.Nome.Equals(((Commessa)obj).Nome);
             return false;
         }
-
-        public Commessa(string nome,int oreLavorate) {
-            Nome = nome;
-            OreLavorate = oreLavorate;
-        }
-
         public override int GetHashCode(){
             return base.GetHashCode();
         }//cio
