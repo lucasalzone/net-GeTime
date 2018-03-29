@@ -15,14 +15,15 @@ giorno date,
 idUtenti int foreign key references Utenti
 );
 Create Table Commesse(
-id int primary key not null,
+id int identity (1,1) primary key not null,
 nome nvarchar(50),
 descrizione nvarchar(200),
 capienza int 
 );
 Create Table giorniCommesse(
-idGiorno int foreign key references Giorni,
-idCommessa int foreign key references Commesse
+	id int identity (1,1) primary key not null,
+	idGiorno int foreign key references Giorni,
+	idCommessa int foreign key references Commesse
 );
 
 insert into TipologiaOre(descrizione,acronimo) values('Ore lavorate','HL');

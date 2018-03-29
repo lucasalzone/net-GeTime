@@ -18,7 +18,7 @@ namespace GeTime
          
     }
 
-    public class ConntrollerTimeSheet
+    public partial class ConntrollerTimeSheet
     {
         private string _dataB;
         public string DataB { get { return _dataB; }set { _dataB = value; } }
