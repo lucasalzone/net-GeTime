@@ -1,8 +1,4 @@
 ﻿Create database GeTime;
-use GeTime;
-Create table Utenti(
-id int identity(1,1) primary key not null,
-);
 Create table TipologiaOre(
 id int identity(1,1) primary key not null,
 descrizione nvarchar(50),
@@ -13,7 +9,7 @@ id int identity (1,1) not null primary key,
 TipoOre int foreign key references TipologiaOre,
 ore int,
 giorno date,
-idUtenti int foreign key references Utenti
+idUtenti int
 );
 Create Table Commesse(
 id int identity (1,1) primary key not null,
@@ -34,3 +30,6 @@ insert into TipologiaOre(descrizione,acronimo) values('Ore di ferie','HF');
 insert into TipologiaOre(descrizione,acronimo) values('Ore di permesso','HP');
 
 insert into TipologiaOre(descrizione,acronimo) values('Ore di malattia','HM');
+
+drop Database GeTime
+
