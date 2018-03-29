@@ -12,7 +12,7 @@ id int identity (1,1) not null primary key,
 TipoOre int foreign key references TipologiaOre,
 ore int,
 giorno date,
-idUtenti int foreign key references Utenti
+idUtenti int
 );
 Create Table Commesse(
 id int identity (1,1) primary key not null,
