@@ -1,4 +1,5 @@
 ﻿Create database GeTime;
+use GeTime;
 Create table Utenti(
 id int identity(1,1) primary key not null,
 );
