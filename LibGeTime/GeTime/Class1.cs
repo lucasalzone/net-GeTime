@@ -271,7 +271,7 @@ namespace GeTime
     {
         private int _id;
         private int _id_utente;
-        private int [] ore = new int[4];
+        private int [] ore = new int[3];
         private DateTime data;
         public DateTime Data { get { return data; }}
         public int ID { get { return _id; }set { _id = value; }}
@@ -279,15 +279,17 @@ namespace GeTime
 
         public int HL { get{ return TotCom();  } }
 
-        private List<Commessa> comme=new List<Commessa>();
+		public int[] Ore { get => ore; set => ore = value; }
+
+		private List<Commessa> comme;
         
 
         public Giorno(DateTime data){ this.data = data;}
         public Giorno(DateTime data, int HP, int HM, int HF, int id, int id_utente){
             this.data = data;
-            ore[(int)HType.HP] = HP;
-            ore[(int)HType.HM] = HM;
-            ore[(int)HType.HF] = HF;
+            Ore[(int)HType.HP] = HP;
+            Ore[(int)HType.HM] = HM;
+            Ore[(int)HType.HF] = HF;
             _id = id;
             _id_utente = id_utente;
         }
