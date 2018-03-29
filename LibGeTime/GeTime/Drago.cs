@@ -37,7 +37,7 @@ namespace GeTime {
                 adp.Dispose();
                 cmd.Dispose();
                 return risGiorno;
-            }catch(Exception e){ 
+            }catch(Exception e ){ 
                 throw e;    
             }finally{ 
                 con.Dispose();    
