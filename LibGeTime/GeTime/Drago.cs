@@ -32,7 +32,7 @@ namespace GeTime {
                         g= risGiorno[risGiorno.IndexOf(g)];
                     else
                         risGiorno.Add(g);
-                    g.AddCommessa(new Commessa(nomeCommessa,ore));
+                   // g.AddCommessa(new Commessa(nomeCommessa,ore));
                 }
                 adp.Dispose();
                 cmd.Dispose();
@@ -43,4 +43,5 @@ namespace GeTime {
                 con.Dispose();    
             }
         }
+	}
 }

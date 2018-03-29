@@ -8,38 +8,38 @@ using System.Data;
 
 namespace GeTime {
 	public partial class ConntrollerTimeSheet {
-		public Giorno SearchGiorno(DateTime dateTime, int id) {
-			SqlConnection connection = new SqlConnection(GetConnection());
-			try{ 
-				connection.Open();
-				SqlCommand command = new SqlCommand("searchGiorno", connection);
-				command.CommandType = CommandType.StoredProcedure;
-				command.Parameters.Add("@giorno", SqlDbType.Date).Value = dateTime;
-				command.Parameters.Add("@id", SqlDbType.Int).Value = id;
-				SqlDataReader data = command.ExecuteReader();
-				while(data.Read()){
-					Giorno giorno = new Giorno(dateTime);
-					switch(data.GetString(2)){
-						case "HF":
-							giorno.Ore[(int)HType.HF] = data.GetInt32(3);
-							break;
-						case "HM":
-							giorno.Ore[(int)HType.HM] = data.GetInt32(3);
-							break;
-						case "HP":
-							giorno.Ore[(int)HType.HP] = data.GetInt32(3);
-							break;
-						case "HL":
-							giorno.Ore[(int)HType.H] = data.GetInt32(3);
-							break;
-					}
-				}
-			}catch(SqlException se){
-				throw new Exception("Errore server");
-			}catch(Exception e){
-				throw e;
-			}
-			return null;
-		}
+	//	public Giorno SearchGiorno(DateTime dateTime, int id) {
+	//		SqlConnection connection = new SqlConnection(GetConnection());
+	//		try{ 
+	//			connection.Open();
+	//			SqlCommand command = new SqlCommand("searchGiorno", connection);
+	//			command.CommandType = CommandType.StoredProcedure;
+	//			command.Parameters.Add("@giorno", SqlDbType.Date).Value = dateTime;
+	//			command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+	//			SqlDataReader data = command.ExecuteReader();
+	//			while(data.Read()){
+	//				Giorno giorno = new Giorno(dateTime);
+	//				switch(data.GetString(2)){
+	//					case "HF":
+	//						giorno.Ore[(int)HType.HF] = data.GetInt32(3);
+	//						break;
+	//					case "HM":
+	//						giorno.Ore[(int)HType.HM] = data.GetInt32(3);
+	//						break;
+	//					case "HP":
+	//						giorno.Ore[(int)HType.HP] = data.GetInt32(3);
+	//						break;
+	//					case "HL":
+	//						giorno.Ore[(int)HType.H] = data.GetInt32(3);
+	//						break;
+	//				}
+	//			}
+	//		}catch(SqlException se){
+	//			throw new Exception("Errore server");
+	//		}catch(Exception e){
+	//			throw e;
+	//		}
+	//		return null;
+	//	}
 	}
 }

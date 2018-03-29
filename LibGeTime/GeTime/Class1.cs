@@ -51,32 +51,32 @@ namespace GeTime
                 con.Dispose();    
             }
         }
-        public bool CompilaHF(DateTime giorno, int HF, int id){
-            SqlConnection connection = new SqlConnection(GetConnection());
-            try {
-                string sql;
-                connection.Open();
-                Giorno g = SearchGiorno(id, giorno);
-                if (g == null){
-                    sql = $"insert into TimeDB (id_Utente,giorno,hl,hm,hp,hf) values ({id},'{giorno.ToString("yyyy-MM-dd")}',0,{HF},0,0);";
-                }
-                else {
-                    sql = $"update TimeDB set HF = {HF} where id_Utente={id}";
-                }
-                SqlCommand command = new SqlCommand(sql, connection);
-                if (command.ExecuteNonQuery() == 0){
-                    throw new Exception();
-                }
-                command.Dispose();
-                return true;
-            }
-            catch (Exception) {
-                return false;
-            }
-            finally {
-                connection.Close();
-            }
-        }
+        //public bool CompilaHF(DateTime giorno, int HF, int id){
+        //    SqlConnection connection = new SqlConnection(GetConnection());
+        //    try {
+        //        string sql;
+        //        connection.Open();
+        //        Giorno g = SearchGiorno(id, giorno);
+        //        if (g == null){
+        //            sql = $"insert into TimeDB (id_Utente,giorno,hl,hm,hp,hf) values ({id},'{giorno.ToString("yyyy-MM-dd")}',0,{HF},0,0);";
+        //        }
+        //        else {
+        //            sql = $"update TimeDB set HF = {HF} where id_Utente={id}";
+        //        }
+        //        SqlCommand command = new SqlCommand(sql, connection);
+        //        if (command.ExecuteNonQuery() == 0){
+        //            throw new Exception();
+        //        }
+        //        command.Dispose();
+        //        return true;
+        //    }
+        //    catch (Exception) {
+        //        return false;
+        //    }
+        //    finally {
+        //        connection.Close();
+        //    }
+        //}
         //public bool CompilaHM(DateTime giorno, int HM, int id){
         //    SqlConnection connection = new SqlConnection(GetConnection());
         //    try{
