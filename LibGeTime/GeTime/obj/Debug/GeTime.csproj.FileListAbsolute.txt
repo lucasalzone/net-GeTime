@@ -1,0 +1,28 @@
+C:\Users\maxfr\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\maxfr\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\maxfr\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\maxfr\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.pdb
+C:\Users\maxfr\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\maxfr\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\max\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\max\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\max\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\max\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\Dragos\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\Dragos\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.pdb
+C:\Users\Dragos\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\Dragos\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\Dragos\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\Dragos\Google Drive\workspace\NAUMAN\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\Dragos\Desktop\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\Dragos\Desktop\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.pdb
+C:\Users\Dragos\Desktop\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\Dragos\Desktop\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\Dragos\Desktop\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\Dragos\Desktop\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTime\bin\Debug\GeTime.pdb
+C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTime\obj\Debug\GeTime.pdb
