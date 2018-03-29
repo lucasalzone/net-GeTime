@@ -1,0 +1,7 @@
+﻿################################################################################
+# Il file gitignore è stato creato automaticamente da Microsoft(R) Visual Studio.
+################################################################################
+
+/LibGeTime/GeTime/obj/Release
+/LibGeTime/LibGeTime/obj/Debug
+/LibGeTime/LibGeTime/obj/Release
