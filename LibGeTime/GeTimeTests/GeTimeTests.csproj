@@ -57,7 +57,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ConntrollerTimeSheetTests.cs" />
-    <Compile Include="ConntrollerTimeSheetTests1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

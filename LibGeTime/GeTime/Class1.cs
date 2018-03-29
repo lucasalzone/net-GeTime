@@ -131,7 +131,7 @@ namespace GeTime
             }
         }
 
-        public Giorno SearchGiorno(DateTime dateTime,int id)
+        public Giorno SearchGiorno(int id, DateTime dateTime)
         {
             SqlConnection con = new SqlConnection(GetConnection());
             try
