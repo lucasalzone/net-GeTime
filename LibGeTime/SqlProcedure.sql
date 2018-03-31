@@ -34,7 +34,7 @@ create Procedure AddHM
 as
 declare @id int ;
 set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
-	if id is null 
+	if @id is null 
 	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
 	else
 	Update giorni set Ore=@ore where id=@id;
@@ -47,11 +47,11 @@ create procedure AddHF
 as
 declare @id int ;
 set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 )
-	if id is null 
+	if @id is null 
 	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (2,@ore,@Giorno,@Utenti) 
 	else
 	Update giorni set Ore=@ore where id=@id;
-go;
+go
 
 create procedure AddHP
 @Ore int,
@@ -65,3 +65,20 @@ set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
 	else
 	Update giorni set Ore=@ore where id=@id;
 go;
+go
+
+create Procedure AddHP
+@Ore int,
+@Giorno date,
+@Utenti int
+as
+
+declare @id int ;
+set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
+	if @id is null 
+	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti) 
+	else
+	Update giorni set Ore=@ore where id=@id;
+go
+
+select*from Giorni

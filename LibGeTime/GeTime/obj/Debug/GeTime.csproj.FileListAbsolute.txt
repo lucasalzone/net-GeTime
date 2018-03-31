@@ -30,3 +30,9 @@ C:\Users\Alessandro\Source\Repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.cs
 C:\Users\Alessandro\Source\Repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
 C:\Users\Alessandro\Source\Repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.dll
 C:\Users\Alessandro\Source\Repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\maxfr\Desktop\workspace\LibGeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\maxfr\Desktop\workspace\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\maxfr\Desktop\workspace\LibGeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\maxfr\Desktop\workspace\LibGeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\maxfr\Desktop\workspace\LibGeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\maxfr\Desktop\workspace\LibGeTime\GeTime\bin\Debug\GeTime.pdb
