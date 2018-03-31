@@ -30,11 +30,11 @@ namespace GeTime {
 							giorno.Ore[(int)HType.HP] = data.GetInt32(3);
 							break;
 						case "HL":
-							giorno.Ore[(int)HType.H] = data.GetInt32(3);
+							giorno.AddCommessa(new Commessa(data.GetInt32(4), data.GetString(5), data.GetInt32(7), data.GetString(6)));
 							break;
 					}
 				}
-			}catch(SqlException se){
+			}catch(SqlException){
 				throw new Exception("Errore server");
 			}catch(Exception e){
 				throw e;
