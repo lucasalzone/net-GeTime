@@ -8,6 +8,30 @@ as
 				left join TipologiaOre T on G.TipoOre = T.id
 	where @id = G.idUtenti and @giorno = G.giorno;
 go
+create Procedure TestSearchGiorno
+as
+	declare @idC int; 
+	declare @idG int;
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(2,2,'2018-03-31',200);
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(3,2,'2018-03-31',200);
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(4,2,'2018-03-31',200);
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(1,2,'2018-03-31',200);
+	set @idG =(select IDENT_CURRENT('Giorni'));
+	insert into Commesse(nome,descrizione,capienza) values('Prova Nauman','provo di searchGiorno',20);
+	set @idC = (select IDENT_CURRENT('Commesse'));
+	insert into giorniCommesse(idGiorno,idCommessa) values(@idG,@idC);
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(1,2,'2018-03-31',200);
+	set @idG =(select IDENT_CURRENT('Giorni'));
+	insert into Commesse(nome,descrizione,capienza) values('Prova 2 Nauman','provo2 di searchGiorno',20);
+	set @idC = (select IDENT_CURRENT('Commesse'));
+	insert into giorniCommesse(idGiorno,idCommessa) values(@idG,@idC);
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(2,2,'2018-03-31',201);
+	insert into Giorni(TipoOre,ore,giorno,idUtenti) values(1,2,'2018-03-31',201);
+		set @idG =(select IDENT_CURRENT('Giorni'));
+		insert into Commesse(nome,descrizione,capienza) values('Prova Nauman','provo di searchGiorno',20);
+	set @idC = (select IDENT_CURRENT('Commesse'));
+		insert into giorniCommesse(idGiorno,idCommessa) values(@idG,@idC);
+go
 create procedure SearchCommessa
 	@nomeCommessa nvarchar,
 	@idUtente int
@@ -25,7 +49,7 @@ as
 		inner join commessa c
 			on gc.idCommessa = c.id
 		where c.id = @cCommessa;
-go;
+go
 
 create Procedure AddHM
 @Ore int,
@@ -38,8 +62,7 @@ set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
 	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
 	else
 	Update giorni set Ore=@ore where id=@id;
-go;
-
+go
 create procedure AddHF
 @Ore int,
 @Giorno date,
@@ -52,7 +75,6 @@ set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 )
 	else
 	Update giorni set Ore=@ore where id=@id;
 go
-
 create procedure AddHP
 @Ore int,
 @Giorno date,
@@ -64,9 +86,7 @@ set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
 	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti) 
 	else
 	Update giorni set Ore=@ore where id=@id;
-go;
 go
-
 create Procedure AddHP
 @Ore int,
 @Giorno date,
@@ -80,5 +100,16 @@ set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
 	else
 	Update giorni set Ore=@ore where id=@id;
 go
+create Procedure AddHM1
+@Ore int,
+@Giorno date,
+@Utenti int
+as
 
-select*from Giorni
+declare @id int ;
+set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
+	if @id is null 
+	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
+	else
+	Update giorni set Ore=@ore where id=@id;
+go

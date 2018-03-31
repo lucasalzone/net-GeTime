@@ -39,37 +39,26 @@ namespace GeTime.Tests
 			bool cavallo = cont.CompilaHP(DateTime.Today, 5, 10);
 			Assert.IsTrue(cavallo);
 		}
-		//[ClassInitialize]
-		//public static void InitClass(TestContext e)
-		//{
-			
-		//}
-		[TestInitialize]
+		[ClassInitialize]
+		public static void InitClass(TestContext e)
+		{
+			ConntrollerTimeSheet.InitTest("TestDB", "TestDB.sql");
+		}
+		/*[TestInitialize]
 		public void InitMethod()
 		{
             cont.Drop();
-		}
+		}*/
 
-		[TestMethod()]
-		public void SearchTimeUtente()
-		{
-			Utente pino = new Utente(9374);
-			Assert.IsTrue(cont.SearchTimeUtente(pino.ID).Count == 0);
-			DateTime x = DateTime.Now;
-			cont.CompilaHF(x.AddDays(-1), 5, pino.ID);
-			cont.CompilaHF(x.AddDays(-2), 5, pino.ID);
-			cont.CompilaHF(x.AddDays(-3), 5, pino.ID);
-			cont.CompilaHF(x.AddDays(-4), 5, pino.ID);
-			Assert.IsTrue(cont.SearchTimeUtente(pino.ID).Count == 4);
-		}
         [TestMethod]
         public void SearchGiornoTest()
         {
-            Utente utente = new Utente(200);
-            Assert.IsNull(cont.SearchGiorno(utente.ID, DateTime.Today));
-            cont.CompilaHF(DateTime.Today, 5, utente.ID);
-            Giorno giorno = cont.SearchGiorno(utente.ID, DateTime.Today);
-            Assert.IsTrue(giorno.ID_UTENTE == utente.ID && giorno.Data == DateTime.Today);
-        }
+			cont.ExecP("TestSearchGiorno");
+			Giorno giorno =cont.SearchGiorno(new DateTime(2018,03,31),200);
+			Assert.IsNotNull(giorno);
+            Assert.IsTrue(giorno.ID_UTENTE == 200);
+			Assert.IsTrue(giorno.HL == 4);
+			Assert.IsTrue(giorno.Commesse.Count == 2);
+		}
     }
 }

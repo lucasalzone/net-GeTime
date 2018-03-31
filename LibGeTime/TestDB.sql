@@ -1,4 +1,6 @@
-﻿Create database TestDB;
+﻿drop database if exists TestDB;
+Create database TestDB;
+use TestDB;
 Create table TipologiaOre(
 id int identity(1,1) primary key not null,
 descrizione nvarchar(50),
@@ -30,17 +32,3 @@ insert into TipologiaOre(descrizione,acronimo) values('Ore di ferie','HF');
 insert into TipologiaOre(descrizione,acronimo) values('Ore di permesso','HP');
 
 insert into TipologiaOre(descrizione,acronimo) values('Ore di malattia','HM');
-go
-create Procedure AddHM
-@Ore int,
-@Giorno date,
-@Utenti int
-as
-
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
-	if @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
-	else
-	Update giorni set Ore=@ore where id=@id;
-go

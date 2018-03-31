@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using System.IO;
+using LibreriaDB;
 namespace GeTime
 {
     public interface IConntrollerTimeSheet
@@ -22,7 +20,7 @@ namespace GeTime
     {
         private string _dataB;
         public string DataB { get { return _dataB; }set { _dataB = value; } }
-        public ConntrollerTimeSheet(string datab){
+        public ConntrollerTimeSheet(string datab= "GeTime") {
             this._dataB = datab;
         }
         public string GetConnection() {
@@ -132,77 +130,19 @@ namespace GeTime
 			//throw new NotImplementedException();
    //     }
 
-        public Giorno SearchGiorno(int id, DateTime dateTime)
-        {
-            //SqlConnection con = new SqlConnection(GetConnection());
-            //try
-            //{
-            //    Giorno g = null;
-            //    con.Open();
-            //    StringBuilder sql = new StringBuilder();
-            //    sql.Append("select id, id_Utente, giorno, hl, hm, hp, hf ");
-            //    sql.Append(" from TimeDB ");
-            //    sql.Append($" where id_Utente={id}  and giorno='{dateTime.ToString("yyyy-MM-dd")}';");
-            //    SqlCommand sqlCommand = new SqlCommand(sql.ToString(), con);
-            //    SqlDataReader sqlData = sqlCommand.ExecuteReader();
-            //    if (sqlData.HasRows)
-            //    {
-            //        sqlData.Read();
-            //        g = new Giorno(sqlData.GetDateTime(2), sqlData.GetInt32(3), sqlData.GetInt32(5), sqlData.GetInt32(4), sqlData.GetInt32(6), sqlData.GetInt32(0), sqlData.GetInt32(1));
-            //    }
-            //    sqlData.Dispose();
-            //    sqlCommand.Dispose();
-            //    return g;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
-            //finally
-            //{
-            //    con.Dispose();
-            //}
-			throw new NotImplementedException();
-        }
-        public static void InitTest()
-        {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = @"(localdb)\MSSQLLocalDB";
-            SqlConnection con = new SqlConnection(builder.ToString());
-            try
-            {
-                con.Open();
-                string sql = "drop database if exists TestTimeSheet;";
-                SqlCommand sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                sql = "create database TestTimeSheet;";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                con.Dispose();
-                builder.InitialCatalog = "TestTimeSheet";
-                con = new SqlConnection(builder.ToString());
-                con.Open();
-				sql = "CREATE TABLE TimeDB ( id INT identity NOT NULL  PRIMARY KEY, id_Utente INT  NOT NULL, giorno DATE NOT NULL, hl INT  NOT NULL, hm INT  NOT NULL, hp INT  NOT NULL, hf INT  NOT NULL); ";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                sqlCommand.Dispose();
-            }
-            catch (Exception ex )
-            {
-                throw ex;
-            }
-            finally
-            {
-                con.Dispose();
-            }
-        }
-        public void Drop()
+		public static void InitTest(string DBName= "GeTime", string fileName = "CreaDatabase.sql") {
+			DB.ExecQFromFile(@"C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\"+fileName);
+			DB.ExecQFromFileProcedure(@"C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
+			
+			//string path = Path.Combine(Environment.CurrentDirectory, @"LibGeTime\", fileName);
+		}
+		public void Drop()
         {
             SqlConnection con = new SqlConnection(GetConnection());
             try
             {
                 con.Open();
-                string sql = "delete Giorni;delete giorniCommesse;delete Commesse";
+                string sql = "delete giorniCommesse;delete Giorni;delete Commesse";
                 SqlCommand command = new SqlCommand(sql, con);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -216,42 +156,19 @@ namespace GeTime
                 con.Dispose();
             }
         }
-
-        public List<Giorno> SearchTimeUtente(int id)
-        {
-            DateTime oggi = DateTime.Now;
-            List<Giorno> timelapse = new List<Giorno>();
-            for (int i = 1; i < 30; i++)
-            {
-                DateTime data = oggi.AddDays(-i);
-                Giorno tmp = SearchGiorno(id, data);
-                if (tmp != null) { timelapse.Add(tmp); }
-            }
-            return timelapse;
-        }
-
-        public Giorno SearchMeseStudente(int id, DateTime dateTime)
-        {
-        //    Giorno G = null;
-        //    SqlConnection connection = new SqlConnection(GetConnection());
-        //    try
-        //    {
-        //        string query = "select  hf, hl, hm, hp from TimeDB " +
-        //                                "WHERE id_Utente = " + id + " and giorno =' " + dateTime.ToString() + " ' ; ";
-        //        connection.Open();
-        //        SqlCommand command = new SqlCommand(query, connection);
-        //        SqlDataReader letto = command.ExecuteReader();
-        //        G = new Giorno(dateTime, letto.GetInt32(1), letto.GetInt32(2), letto.GetInt32(3), letto.GetInt32(4), letto.GetInt32(0), letto.GetInt32(5));
-        //        command.Dispose();
-        //    }
-        //    catch (Exception banana) { throw banana; }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return G;
-        //}
-		throw new NotImplementedException ();
+		public void ExecP(string pro){
+			SqlConnection con = new SqlConnection(GetConnection());
+			try {
+				con.Open();
+				SqlCommand command = new SqlCommand(pro, con);
+				command.CommandType = System.Data.CommandType.StoredProcedure;
+				command.ExecuteNonQuery();
+				command.Dispose();
+			} catch (Exception e) {
+				throw e;
+			} finally {
+				con.Dispose();
+			}
 		}
     }
 
@@ -265,7 +182,7 @@ namespace GeTime
         }
     }
 
-    public enum  HType{HL,HP,HF,HM};
+    public enum  HType{HP,HF,HM, HL};
 
     public class Giorno
     {
@@ -280,8 +197,9 @@ namespace GeTime
         public int HL { get{ return TotCom();  } }
 
 		public int[] Ore { get => ore; set => ore = value; }
+		public List<Commessa> Commesse { get => commesse;}
 
-		private List<Commessa> comme;
+		private List<Commessa> commesse;
         
 
         public Giorno(DateTime data){ this.data = data;}
@@ -294,11 +212,13 @@ namespace GeTime
             _id_utente = id_utente;
         }
         public void AddCommessa(Commessa com){ 
-            comme.Add(com);    
+			if(commesse == null)
+				commesse = new List<Commessa>();
+			commesse.Add(com);    
         }
         private int TotCom(){ 
             int tot=0;
-            foreach(Commessa com in comme){
+            foreach(Commessa com in Commesse) {
                 tot+=com.OreLavorate;
            }            return tot;
         }
@@ -324,31 +244,29 @@ namespace GeTime
         private int _capacita;
         private string _descrizione;
 
-        public Commessa(string nome,int capacita,string descrizione) {
-            this._nome = nome;
-            Capacita = capacita;
-            Descrizione = descrizione;
-        }
+		public Commessa(int id, int oreLavorate, string nome, int capacita, string descrizione) {
+			_id = id;
+			this.oreLavorate = oreLavorate;
+			_nome = nome;
+			_capacita = capacita;
+			_descrizione = descrizione;
+		}
 
-        public Commessa(int id,string nome,int capacita,string descrizione){
-            this._nome = nome;
-            this._id = id;
-            this._capacita = capacita;
-            this._descrizione = descrizione;
-        }
+		public Commessa(string nome) {
+			_nome = nome;
+		}
+		public Commessa(string nome, int capacita, string descrizione) : this(nome) {
+			_capacita = capacita;
+			_descrizione = descrizione;
+		}
 
-        public Commessa(int capacita,string descrizione) {
-            Capacita = capacita;
-            Descrizione = descrizione;
-        }
-
-        public override bool Equals(object obj) {
+		public override bool Equals(object obj) {
             if(this.Nome!=null)
                 return this.Nome.Equals(((Commessa)obj).Nome);
             return false;
         }
         public override int GetHashCode(){
             return base.GetHashCode();
-        }//cio
+        }
     }
 }
