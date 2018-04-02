@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GeTime {
     public partial class ConntrollerTimeSheet {
-        List<Giorno> SearchCommessa(string nomeCommessa,int id){ 
+        public List<Giorno> SearchCommessa(string nomeCommessa,int id){ 
             List<Giorno> risGiorno = null;
             SqlConnection con = new SqlConnection(GetConnection());
            try{ 

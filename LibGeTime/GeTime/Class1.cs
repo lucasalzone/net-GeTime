@@ -14,10 +14,9 @@ namespace GeTime
         bool CompilaHP(DateTime giorno, int HP, int id);
         Giorno SearchGiorno(DateTime dateTime,int id);//Restituisce il giorno di una determinata persona per un tederminato datatime
         List<Giorno> SearchCommessa(string nomeCommessa,int id);//Restituisce la lista di giorni nei quali ho lavorato per quella commessa
-         
     }
 
-    public partial class ConntrollerTimeSheet
+    public partial class ConntrollerTimeSheet : IConntrollerTimeSheet
     {
         private string _dataB;
 		private SqlParameter[] parameters = new SqlParameter[3];
@@ -34,26 +33,8 @@ namespace GeTime
             builder.InitialCatalog = DataB;
             return builder.ToString();
         }
-
-		private int ExecNonQProcedure(string procedureName, SqlParameter[] sqlParameters) {
-			SqlConnection connection = new SqlConnection(GetConnection());
-			try {
-				connection.Open();
-				SqlCommand command = new SqlCommand(procedureName, connection);
-				command.CommandType = CommandType.StoredProcedure;
-				if (sqlParameters != null) {
-					command.Parameters.AddRange(sqlParameters);
-				}
-				int i = command.ExecuteNonQuery();
-				command.Dispose();
-				return i;
-			} catch (Exception e) {
-				throw e;
-			} finally {
-				connection.Dispose();
-			}
-		}
-		public void CompilaHL(DateTime giorno, int HL, int id,string commessa){ 
+		// drago aggiungi il tuo CompilaHL
+		public bool CompilaHL(DateTime giorno, int HL, string commessa, int id) { 
             SqlConnection con = new SqlConnection(GetConnection());
             try{
                 con.Open();
@@ -71,157 +52,35 @@ namespace GeTime
             }finally{ 
                 con.Dispose();    
             }
+			return false;
         }
-        //public bool CompilaHF(DateTime giorno, int HF, int id){
-        //    SqlConnection connection = new SqlConnection(GetConnection());
-        //    try {
-        //        string sql;
-        //        connection.Open();
-        //        Giorno g = SearchGiorno(id, giorno);
-        //        if (g == null){
-        //            sql = $"insert into TimeDB (id_Utente,giorno,hl,hm,hp,hf) values ({id},'{giorno.ToString("yyyy-MM-dd")}',0,{HF},0,0);";
-        //        }
-        //        else {
-        //            sql = $"update TimeDB set HF = {HF} where id_Utente={id}";
-        //        }
-        //        SqlCommand command = new SqlCommand(sql, connection);
-        //        if (command.ExecuteNonQuery() == 0){
-        //            throw new Exception();
-        //        }
-        //        command.Dispose();
-        //        return true;
-        //    }
-        //    catch (Exception) {
-        //        return false;
-        //    }
-        //    finally {
-        //        connection.Close();
-        //    }
-        //}
-        //public bool CompilaHM(DateTime giorno, int HM, int id){
-        //    SqlConnection connection = new SqlConnection(GetConnection());
-        //    try{
-        //        string sql;
-        //        connection.Open();
-        //        Giorno g = SearchGiorno(id, giorno);
-        //        g.HM = HM;
-        //        if (g == null) {
-        //            sql = $"insert into TimeDB (id_Utente,giorno,hl,hm,hp,hf) values ({id},'{giorno.ToString("yyyy-MM-dd")}'0,0,{HM},0);";
-        //        }
-        //        else {
-        //            sql = $"update TimeDB set HM = {HM} where id_Utente={id}";
-        //        }
-        //        SqlCommand command = new SqlCommand(sql, connection);
-        //        if (command.ExecuteNonQuery() == 0){
-        //            throw new Exception();
-        //        }
-        //        command.Dispose();
-        //        return true;
-        //    }
-        //    catch (Exception) {
-        //        return false;
-        //    }
-        //    finally{
-        //        connection.Close();
-        //    }
-        //}
-   //     public bool CompilaHP(DateTime giorno, int HP, int id) {
-   //         //SqlConnection connection = new SqlConnection(GetConnection());
-   //         //try{
-   //         //    string sql;
-   //         //    connection.Open();
-   //         //    Giorno g = SearchGiorno(id, giorno);
-   //         //    if (g == null){
-   //         //        sql = $"insert into TimeDB (id_Utente,giorno,hl,hm,hp,hf) values ({id},'{giorno.ToString("yyyy-MM-dd")}'0,0,0,{HP});";
-   //         //    }
-   //         //    else{
-   //         //        sql = $"update TimeDB set HP = {HP} where id_Utente={id}";
-   //         //    }
-   //         //    SqlCommand command = new SqlCommand(sql, connection);
-   //         //    if (command.ExecuteNonQuery() == 0) {
-   //         //        throw new Exception();
-   //         //    }
-   //         //    command.Dispose();
-   //         //    return true;
-   //         //}
-   //         //catch (Exception){
-   //         //    return false;
-   //         //}
-   //         //finally{
-   //         //    connection.Close();
-   //         //}
-			//throw new NotImplementedException();
-   //     }
-
 		public static void InitTest(string DBName= "GeTime", string fileName = "CreaDatabase.sql") {
 			DB.ExecQFromFile(@"C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\"+fileName);
 			DB.ExecQFromFileProcedure(@"C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
 			
 			//string path = Path.Combine(Environment.CurrentDirectory, @"LibGeTime\", fileName);
 		}
-		public void Drop()
-        {
-            SqlConnection con = new SqlConnection(GetConnection());
-            try
-            {
-                con.Open();
-                string sql = "delete giorniCommesse;delete Giorni;delete Commesse";
-                SqlCommand command = new SqlCommand(sql, con);
-                command.ExecuteNonQuery();
-                command.Dispose();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            finally
-            {
-                con.Dispose();
-            }
-        }
 		public void ExecP(string pro){
-			SqlConnection con = new SqlConnection(GetConnection());
-			try {
-				con.Open();
-				SqlCommand command = new SqlCommand(pro, con);
-				command.CommandType = System.Data.CommandType.StoredProcedure;
-				command.ExecuteNonQuery();
-				command.Dispose();
-			} catch (Exception e) {
-				throw e;
-			} finally {
-				con.Dispose();
-			}
+			DB.ExecNonQProcedure(pro,null,_dataB);
 		}
-    }
+	}
 
-    public partial class Utente
-    {
-        private int _id;
-        public int ID { get { return _id; } }
-        public Utente(int id)
-        {
-            _id = id;
-        }
-    }
-
-    public enum  HType{HP,HF,HM, HL};
-
+    public enum  HType{HP,HF,HM};
     public class Giorno
     {
         private int _id;
         private int _id_utente;
         private int [] ore = new int[3];
         private DateTime data;
+
         public DateTime Data { get { return data; }}
-        public int ID { get { return _id; }set { _id = value; }}
+		private List<Commessa> commesse;
+
         public int ID_UTENTE {get { return _id_utente; }set { _id_utente = value; }}
-
+        public int ID { get { return _id; }set { _id = value; }}
         public int HL { get{ return TotCom();  } }
-
 		public int[] Ore { get => ore; set => ore = value; }
 		public List<Commessa> Commesse { get => commesse;}
-		private List<Commessa> commesse;
         
 
         public Giorno(DateTime data){ this.data = data;}
