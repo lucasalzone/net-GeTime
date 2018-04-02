@@ -18,7 +18,6 @@ namespace GeTime {
 					giorno = new Giorno(dateTime);
 					giorno.ID_UTENTE =id;
 					do{
-						String s = ($"{data.GetInt32(0)}  {data.GetDateTime(1)}  {data.GetString(2)}  {data.GetInt32(3)}");
 						switch(data.GetString(2)){
 							case "HF":
 								giorno.Ore[(int)HType.HF] = data.GetInt32(3);
@@ -30,7 +29,6 @@ namespace GeTime {
 								giorno.Ore[(int)HType.HP] = data.GetInt32(3);
 								break;
 							case "HL":
-								String s2 = ($"{data.GetInt32(4)},{data.GetString(5)} , {data.GetInt32(7)} , {data.GetString(6)}");
 								giorno.AddCommessa(new Commessa(data.GetInt32(4), data.GetInt32(3), data.GetString(5), data.GetInt32(7), data.GetString(6)));
 								break;
 						}

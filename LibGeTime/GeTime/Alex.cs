@@ -9,8 +9,7 @@ namespace GeTime {
     public partial  class ConntrollerTimeSheet{
 
          public bool CompilaHF(DateTime giorno, int Hf, int id){
-            SqlConnection connection = new SqlConnection(GetConnection()); //da sistemare il GetConnection()
-                
+            SqlConnection connection = new SqlConnection(GetConnection());
 			try { 
                 connection.Open();
                 SqlCommand command = new SqlCommand("AddHF", connection);
@@ -19,18 +18,14 @@ namespace GeTime {
                 command.Parameters.Add("@Ore",System.Data.SqlDbType.Int).Value = Hf;
                 command.Parameters.Add("@Utenti",System.Data.SqlDbType.Int).Value = id;
 				int a = command.ExecuteNonQuery();
-				if(a == 0)
-				{
-					throw new Exception();
-				}
-
 				command.Dispose();
-				return true;
-                
-			}catch (Exception )
-			{
-				return false;
-				
+				if (a == 0)
+				{
+					return false;
+				}
+				return true;         
+			}catch (Exception){
+				return false;	
 			} 
 			finally { 
                 connection.Dispose();

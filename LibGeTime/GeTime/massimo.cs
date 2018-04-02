@@ -14,17 +14,16 @@ namespace GeTime
             SqlConnection connection = new SqlConnection(GetConnection());
             try{
                 connection.Open();
-               
                 SqlCommand command = new SqlCommand("AddHM", connection);
 				command.CommandType = System.Data.CommandType.StoredProcedure;
 				command.Parameters.Add("@Ore",System.Data.SqlDbType.Int).Value=HM;
 				command.Parameters.Add("@Giorno",System.Data.SqlDbType.Date).Value=giorno.ToString("yyyy-MM-dd");
 				command.Parameters.Add("@Utenti",System.Data.SqlDbType.Int).Value = id;
 				int a = command.ExecuteNonQuery();
-                if (a == 0){
-                    throw new Exception();
+				command.Dispose();
+				if (a == 0){
+                    return false;
                 }
-                command.Dispose();
                 return true;
             }
             catch (Exception) {
@@ -39,17 +38,16 @@ namespace GeTime
 			SqlConnection connection = new SqlConnection(GetConnection());
             try{
                 connection.Open();
-               
                 SqlCommand command = new SqlCommand("AddHP", connection);
 				command.CommandType = System.Data.CommandType.StoredProcedure;
 				command.Parameters.Add("@Ore",System.Data.SqlDbType.Int).Value=HP;
 				command.Parameters.Add("@Giorno",System.Data.SqlDbType.Date).Value=giorno.ToString("yyyy-MM-dd");
 				command.Parameters.Add("@Utenti",System.Data.SqlDbType.Int).Value = id;
 				int a = command.ExecuteNonQuery();
-                if (a == 0){
-                    throw new Exception();
+				command.Dispose();
+				if (a == 0){
+                    return false;
                 }
-                command.Dispose();
                 return true;
             }
             catch (Exception) {

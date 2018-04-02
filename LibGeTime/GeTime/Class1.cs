@@ -198,7 +198,6 @@ namespace GeTime
 
 		public int[] Ore { get => ore; set => ore = value; }
 		public List<Commessa> Commesse { get => commesse;}
-
 		private List<Commessa> commesse;
         
 

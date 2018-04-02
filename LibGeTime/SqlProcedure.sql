@@ -52,64 +52,38 @@ as
 go
 
 create Procedure AddHM
-@Ore int,
-@Giorno date,
-@Utenti int
+	@Ore int,
+	@Giorno date,
+	@Utenti int
 as
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
+	declare @id int;
+	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 and idUtenti=@Utenti);
 	if @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
+		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti);
 	else
-	Update giorni set Ore=@ore where id=@id;
+		Update giorni set Ore=@ore where id=@id;
 go
 create procedure AddHF
-@Ore int,
-@Giorno date,
-@Utenti int
+	@Ore int,
+	@Giorno date,
+	@Utenti int
 as
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 )
+	declare @id int;
+	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 and idUtenti=@Utenti);
 	if @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (2,@ore,@Giorno,@Utenti) 
+		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (2,@ore,@Giorno,@Utenti);
 	else
-	Update giorni set Ore=@ore where id=@id;
+		Update giorni set Ore=@ore where id=@id;
 go
 create procedure AddHP
-@Ore int,
-@Giorno date,
-@Utenti int
+	@Ore int,
+	@Giorno date,
+	@Utenti int
 as
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
-	if id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti) 
-	else
-	Update giorni set Ore=@ore where id=@id;
-go
-create Procedure AddHP
-@Ore int,
-@Giorno date,
-@Utenti int
-as
-
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
+	declare @id int;
+	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 and idUtenti=@Utenti);
 	if @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti) 
+		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti); 
 	else
-	Update giorni set Ore=@ore where id=@id;
-go
-create Procedure AddHM1
-@Ore int,
-@Giorno date,
-@Utenti int
-as
-
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
-	if @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
-	else
-	Update giorni set Ore=@ore where id=@id;
+		Update giorni set Ore=@ore where id=@id;
 go
