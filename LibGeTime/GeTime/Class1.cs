@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using LibreriaDB;
@@ -19,18 +20,40 @@ namespace GeTime
     public partial class ConntrollerTimeSheet
     {
         private string _dataB;
-        public string DataB { get { return _dataB; }set { _dataB = value; } }
+		private SqlParameter[] parameters = new SqlParameter[3];
+		public string DataB { get { return _dataB; }set { _dataB = value; } }
         public ConntrollerTimeSheet(string datab= "GeTime") {
             this._dataB = datab;
-        }
+			parameters[0] = new SqlParameter("@Ore", System.Data.SqlDbType.Int);
+			parameters[1] = new SqlParameter("@Giorno", System.Data.SqlDbType.Date);
+			parameters[2] = new SqlParameter("@Utenti", System.Data.SqlDbType.Int);
+		}
         public string GetConnection() {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = @"(localdb)\MSSQLLocalDB";
             builder.InitialCatalog = DataB;
             return builder.ToString();
         }
-        
-        public void CompilaHL(DateTime giorno, int HL, int id,string commessa){ 
+
+		private int ExecNonQProcedure(string procedureName, SqlParameter[] sqlParameters) {
+			SqlConnection connection = new SqlConnection(GetConnection());
+			try {
+				connection.Open();
+				SqlCommand command = new SqlCommand(procedureName, connection);
+				command.CommandType = CommandType.StoredProcedure;
+				if (sqlParameters != null) {
+					command.Parameters.AddRange(sqlParameters);
+				}
+				int i = command.ExecuteNonQuery();
+				command.Dispose();
+				return i;
+			} catch (Exception e) {
+				throw e;
+			} finally {
+				connection.Dispose();
+			}
+		}
+		public void CompilaHL(DateTime giorno, int HL, int id,string commessa){ 
             SqlConnection con = new SqlConnection(GetConnection());
             try{
                 con.Open();
@@ -210,7 +233,8 @@ namespace GeTime
             _id = id;
             _id_utente = id_utente;
         }
-        public void AddCommessa(Commessa com){ 
+
+		public void AddCommessa(Commessa com){ 
 			if(commesse == null)
 				commesse = new List<Commessa>();
 			commesse.Add(com);    

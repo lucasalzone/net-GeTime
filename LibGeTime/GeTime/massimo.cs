@@ -1,61 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data.SqlClient;
-using System.Data;
-using System.Threading.Tasks;
 
 namespace GeTime
 {
 	public partial  class ConntrollerTimeSheet
 	{
 		 public bool CompilaHM(DateTime giorno, int HM, int id){
-            SqlConnection connection = new SqlConnection(GetConnection());
-            try{
-                connection.Open();
-                SqlCommand command = new SqlCommand("AddHM", connection);
-				command.CommandType = System.Data.CommandType.StoredProcedure;
-				command.Parameters.Add("@Ore",System.Data.SqlDbType.Int).Value=HM;
-				command.Parameters.Add("@Giorno",System.Data.SqlDbType.Date).Value=giorno.ToString("yyyy-MM-dd");
-				command.Parameters.Add("@Utenti",System.Data.SqlDbType.Int).Value = id;
-				int a = command.ExecuteNonQuery();
-				command.Dispose();
-				if (a == 0){
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception) {
-                return false;
-            }
-            finally{
-                connection.Close();
-            }
+			parameters[0].Value = HM;
+			parameters[1].Value = giorno.ToString("yyyy-MM-dd");
+			parameters[2].Value = id;
+			try {
+				int a = ExecNonQProcedure("AddHM", parameters);
+				if (a == 0) {
+					return false;
+				}
+				return true;
+			} catch (Exception) {
+				return false;
+			}
         }
 		public bool CompilaHP(DateTime giorno,int HP,int id)
 		{
-			SqlConnection connection = new SqlConnection(GetConnection());
-            try{
-                connection.Open();
-                SqlCommand command = new SqlCommand("AddHP", connection);
-				command.CommandType = System.Data.CommandType.StoredProcedure;
-				command.Parameters.Add("@Ore",System.Data.SqlDbType.Int).Value=HP;
-				command.Parameters.Add("@Giorno",System.Data.SqlDbType.Date).Value=giorno.ToString("yyyy-MM-dd");
-				command.Parameters.Add("@Utenti",System.Data.SqlDbType.Int).Value = id;
-				int a = command.ExecuteNonQuery();
-				command.Dispose();
-				if (a == 0){
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception) {
-                return false;
-            }
-            finally{
-                connection.Close();
-            }
+			parameters[0].Value = HP;
+			parameters[1].Value = giorno.ToString("yyyy-MM-dd");
+			parameters[2].Value = id;
+			try {
+				int a = ExecNonQProcedure("AddHP", parameters);
+				if (a == 0) {
+					return false;
+				}
+				return true;
+			} catch (Exception) {
+				return false;
+			}
 		}
 	}
 }
