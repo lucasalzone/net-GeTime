@@ -47,7 +47,7 @@ create procedure AddHF
 as
 declare @id int ;
 set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 )
-	if id is null 
+	if  @id is null 
 	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (2,@ore,@Giorno,@Utenti) 
 	else
 	Update giorni set Ore=@ore where id=@id;
