@@ -71,5 +71,16 @@ namespace GeTime.Tests
             Giorno giorno = cont.SearchGiorno(utente.ID, DateTime.Today);
             Assert.IsTrue(giorno.ID_UTENTE == utente.ID && giorno.Data == DateTime.Today);
         }
+            [TestMethod]
+        public void SearchCommessaTest()
+        {
+            ControllerTimeSheet cts = new ControllerTimeSheet();
+            Commessa c1 = new Commessa("AbraCadabra", 999,"Corso di magia applicata");
+            cts.InsertCommessa(c1);
+            cts.
+            Assert.IsTrue(giorno.ID_UTENTE == utente.ID && giorno.Data == DateTime.Today);
+        }
+
     }
+    
 }

@@ -32,14 +32,17 @@ namespace GeTime
             return builder.ToString();
         }
         
-        public void CompilaHL(DateTime giorno, int HL, int id,string commessa){ 
+
+
+        public void CompilaHL(DateTime giorno, int HL,string commessa,int id){ 
             SqlConnection con = new SqlConnection(GetConnection());
             try{
                 con.Open();
-                SqlCommand cmd = new SqlCommand("AddFunzione",con);
+                SqlCommand cmd = new SqlCommand("AddHL",con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.Add("@giono",System.Data.SqlDbType.Date).Value = giorno;
                 cmd.Parameters.Add("@HType",System.Data.SqlDbType.Int).Value = HL;
+                cmd.Parameters.Add("@commessa",System.Data.SqlDbType.NVarChar).Value = commessa;
                 cmd.Parameters.Add("@commessa",System.Data.SqlDbType.NVarChar).Value = commessa;
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -306,16 +309,16 @@ namespace GeTime
         }
     }
 
-    public class Commessa{ 
+    public partial class Commessa{ 
         
-        private int _id; public int Id { get;set;}
         public int Capacita { get => _capacita; set => _capacita = value; }
         public string Descrizione { get => _descrizione; set => _descrizione = value; }
         public string Nome { get => _nome; set => _nome = value; }
         public int OreLavorate { get => oreLavorate; set => oreLavorate = value; }
 
-        private int oreLavorate;
 
+        private int _id; public int Id { get;set;}
+        private int oreLavorate;
         private string _nome;
         private int _capacita;
         private string _descrizione;
@@ -333,7 +336,7 @@ namespace GeTime
             this._descrizione = descrizione;
         }
 
-        public Commessa(int capacita,string descrizione) {
+        public Commessa(string descrizione,int capacita) {
             Capacita = capacita;
             Descrizione = descrizione;
         }

@@ -73,3 +73,7 @@ C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTimeTes
 C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTimeTests\obj\Debug\GeTimeTests.csproj.CopyComplete
 C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTimeTests\obj\Debug\GeTimeTests.dll
 C:\Users\Dragos\Desktop\corso alfasoft\GETIME\Versione 20-03-18\GeTime\GeTimeTests\obj\Debug\GeTimeTests.pdb
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csprojResolveAssemblyReference.cache
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csproj.CoreCompileInputs.cache
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.dll
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.pdb
