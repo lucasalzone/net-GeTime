@@ -133,3 +133,7 @@ C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTimeTests\obj\Debug
 C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\LibreriaDB.dll
 C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\LibreriaDB.pdb
 C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\LibreriaDB.xml
+C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csprojResolveAssemblyReference.cache
+C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csproj.CoreCompileInputs.cache
+C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.dll
+C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.pdb
