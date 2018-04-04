@@ -34,8 +34,8 @@ namespace GeTime
             return builder.ToString();
         }
 		public static void InitTest(string DBName= "GeTime", string fileName = "CreaDatabase.sql") {
-			DB.ExecQFromFile(@"C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\"+fileName);
-			DB.ExecQFromFileProcedure(@"C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
+			DB.ExecQFromFile(@"C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime"+fileName);
+			DB.ExecQFromFileProcedure(@"C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
 			
 			//string path = Path.Combine(Environment.CurrentDirectory, @"LibGeTime\", fileName);
 		}
