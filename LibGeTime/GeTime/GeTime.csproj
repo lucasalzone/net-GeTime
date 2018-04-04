@@ -30,12 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="LibreriaDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Desktop\C#\LibreriaDB\LibreriaDB\bin\Debug\LibreriaDB.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,10 +55,73 @@
   <ItemGroup>
     <Compile Include="Alex.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Commesse.cs">
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Drago.cs" />
+    <Compile Include="GeTimeEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeTimeEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeTimeEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeTimeEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeTimeEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Giorni.cs">
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="giorniCommesse.cs">
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="massimo.cs" />
     <Compile Include="nauman.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchCommessa_Result.cs">
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="searchGiorno_Result.cs">
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipologiaOre.cs">
+      <DependentUpon>GeTimeEntity.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="GeTimeEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GeTimeEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GeTimeEntity.edmx.diagram">
+      <DependentUpon>GeTimeEntity.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GeTimeEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GeTimeEntity.Context.cs</LastGenOutput>
+      <DependentUpon>GeTimeEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="GeTimeEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeTimeEntity.edmx</DependentUpon>
+      <LastGenOutput>GeTimeEntity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

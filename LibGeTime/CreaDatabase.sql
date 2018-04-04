@@ -1,4 +1,5 @@
-﻿Create database GeTime;
+﻿Drop database if exists GeTime;
+Create database GeTime;
 use GeTime;
 Create table TipologiaOre(
 id int identity(1,1) primary key not null,
