@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GeTime;
 
 namespace GeTime.Tests
 {
@@ -52,7 +53,7 @@ namespace GeTime.Tests
 		[ClassInitialize]
 		public static void InitClass(TestContext e)
 		{
-			ConntrollerTimeSheet.InitTest("TestDB", "TestDB.sql");
+			ConntrollerTimeSheet.InitTest("TestDB","TestDB.sql");
 		}
 
         [TestMethod]

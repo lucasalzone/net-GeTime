@@ -7,7 +7,7 @@ using System.Data;
 using System.Threading.Tasks;
 
 namespace GeTime {
-    public partial class ConntrollerTimeSheet : IControllerTimeSheet{
+    public partial class ConntrollerTimeSheet{
         public List<Giorno> SearchCommessa(string nomeCommessa,int id){ 
             List<Giorno> risGiorno = null;
             SqlConnection con = new SqlConnection(GetConnection());
@@ -90,6 +90,10 @@ namespace GeTime {
         public Commessa(string nome, string descrizione, int capienza){ 
             this._nome = nome;
             this._descrizione = descrizione;
+            this._capacita = capienza;
+        }
+         public Commessa(string nome,int capienza){ 
+            this._nome = nome;
             this._capacita = capienza;
         }
     }
