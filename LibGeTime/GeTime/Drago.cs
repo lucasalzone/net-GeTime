@@ -92,6 +92,11 @@ namespace GeTime {
             this._descrizione = descrizione;
             this._capacita = capienza;
         }
+         public Commessa(string nome,int capienza){ 
+            this._nome = nome;
+            this._descrizione = descrizione;
+            this._capacita = capienza;
+        }
     }
 }
 
