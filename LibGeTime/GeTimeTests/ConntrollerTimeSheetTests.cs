@@ -12,7 +12,7 @@ namespace GeTime.Tests
 	[TestClass()]
 	public class ConntrollerTimeSheetTests
 	{
-        private ConntrollerTimeSheet cont = new ConntrollerTimeSheet("TestDB");
+        private ConntrollerTimeSheet cont = new ConntrollerTimeSheet();
         [TestMethod()]
 		public void CompilaHLTest()
 		{
@@ -53,12 +53,21 @@ namespace GeTime.Tests
 		[ClassInitialize]
 		public static void InitClass(TestContext e)
 		{
-			ConntrollerTimeSheet.InitTest("TestDB","TestDB.sql");
+			ConntrollerTimeSheet.InitTest();
 		}
 
         [TestMethod]
         public void SearchGiornoTest()
         {
+			/*
+			cont.CompilaHF(DateTime.Today,2, 200);
+			cont.CompilaHP(DateTime.Today, 2, 200);
+			cont.CompilaHM(DateTime.Today, 2, 200);
+			cont.InsertCommessa("Prova Nauman", "provo di searchGiorno", 20);
+			cont.CompilaHL(DateTime.Today, 2, "Prova Nauman", 200);
+			cont.InsertCommessa("Prova 2 Nauman", "provo di searchGiorno", 20);
+			cont.CompilaHL(DateTime.Today, 2, "Prova 2 Nauman", 200);
+			*/
 			cont.ExecP("TestSearchGiorno");
 			Giorno giorno =cont.SearchGiorno(new DateTime(2018,03,31),200);
 			Assert.IsNotNull(giorno);

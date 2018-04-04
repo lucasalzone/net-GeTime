@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GeTimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GeTimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Commesse">
           <Key>
             <PropertyRef Name="id" />
@@ -128,8 +128,7 @@
             <End Role="giorniCommesse" EntitySet="giorniCommesse" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GeTimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -228,33 +227,33 @@
             <End Role="giorniCommesse" EntitySet="giorniCommesse" />
           </AssociationSet>
           <FunctionImport Name="AddHF">
-            <Parameter Name="Ore" Mode="In" Type="Int32" />
+          <Parameter Name="Ore" Mode="In" Type="Int32" />
             <Parameter Name="Giorno" Mode="In" Type="DateTime" />
             <Parameter Name="Utenti" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="AddHL">
-            <Parameter Name="giorno" Mode="In" Type="DateTime" />
+          <Parameter Name="giorno" Mode="In" Type="DateTime" />
             <Parameter Name="nOre" Mode="In" Type="Int32" />
             <Parameter Name="idU" Mode="In" Type="Int32" />
             <Parameter Name="nomeCommit" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="AddHM">
-            <Parameter Name="Ore" Mode="In" Type="Int32" />
+          <Parameter Name="Ore" Mode="In" Type="Int32" />
             <Parameter Name="Giorno" Mode="In" Type="DateTime" />
             <Parameter Name="Utenti" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="AddHP">
-            <Parameter Name="Ore" Mode="In" Type="Int32" />
+          <Parameter Name="Ore" Mode="In" Type="Int32" />
             <Parameter Name="Giorno" Mode="In" Type="DateTime" />
             <Parameter Name="Utenti" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="InsertCommessa">
-            <Parameter Name="nome" Mode="In" Type="String" />
+          <Parameter Name="nome" Mode="In" Type="String" />
             <Parameter Name="descrizione" Mode="In" Type="String" />
             <Parameter Name="capienza" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SearchCommessa" ReturnType="Collection(GeTimeModel.SearchCommessa_Result)">
-            <Parameter Name="nomeCommessa" Mode="In" Type="String" />
+          <Parameter Name="nomeCommessa" Mode="In" Type="String" />
             <Parameter Name="idUtente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="searchGiorno" ReturnType="Collection(GeTimeModel.searchGiorno_Result)">
@@ -272,7 +271,7 @@
           <Property Type="DateTime" Name="giorno" Nullable="true" />
           <Property Type="String" Name="acronimo" Nullable="true" MaxLength="2" />
           <Property Type="Int32" Name="ore" Nullable="true" />
-          <Property Type="Int32" Name="id1" Nullable="true" />
+          <Property Type="Int32" Name="IdComessa" Nullable="true" />
           <Property Type="String" Name="nome" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="descrizione" Nullable="true" MaxLength="200" />
           <Property Type="Int32" Name="capienza" Nullable="true" />
@@ -343,7 +342,7 @@
                 <ScalarProperty Name="giorno" ColumnName="giorno" />
                 <ScalarProperty Name="acronimo" ColumnName="acronimo" />
                 <ScalarProperty Name="ore" ColumnName="ore" />
-                <ScalarProperty Name="id1" ColumnName="id1" />
+                <ScalarProperty Name="IdComessa" ColumnName="IdComessa" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
                 <ScalarProperty Name="descrizione" ColumnName="descrizione" />
                 <ScalarProperty Name="capienza" ColumnName="capienza" />

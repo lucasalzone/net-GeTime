@@ -34,8 +34,8 @@ namespace GeTime
             return builder.ToString();
         }
 		public static void InitTest(string DBName= "GeTime", string fileName = "CreaDatabase.sql") {
-			DB.ExecQFromFile(@"C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\"+fileName);
-			DB.ExecQFromFileProcedure(@"C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
+			DB.ExecQFromFile(@"C:\Users\max\source\GitHubRepo\net-GeTime\LibGeTime\" + fileName);
+			DB.ExecQFromFileProcedure(@"C:\Users\max\source\GitHubRepo\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
 			
 			//string path = Path.Combine(Environment.CurrentDirectory, @"LibGeTime\", fileName);
 		}
@@ -47,7 +47,7 @@ namespace GeTime
     public enum  HType{HP,HF,HM};
     public class Giorno
     {
-        private int _id;
+        private List<int> _id;
         private int _id_utente;
         private int [] ore = new int[3];
         private DateTime data;
@@ -56,14 +56,14 @@ namespace GeTime
 		private List<Commessa> commesse;
 
         public int ID_UTENTE {get { return _id_utente; }set { _id_utente = value; }}
-        public int ID { get { return _id; }set { _id = value; }}
+        public List<int> ID { get { return _id; }set { _id = value; }}
         public int HL { get{ return TotCom();  } }
 		public int[] Ore { get => ore; set => ore = value; }
 		public List<Commessa> Commesse { get => commesse;}
         
 
         public Giorno(DateTime data){ this.data = data;}
-        public Giorno(DateTime data, int HP, int HM, int HF, int id, int id_utente){
+        public Giorno(DateTime data, int HP, int HM, int HF, List<int> id, int id_utente){
             this.data = data;
             Ore[(int)HType.HP] = HP;
             Ore[(int)HType.HM] = HM;
