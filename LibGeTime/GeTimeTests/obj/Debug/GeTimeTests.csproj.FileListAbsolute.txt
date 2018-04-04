@@ -177,5 +177,3 @@ C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csproj.CopyComplete
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.dll
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.pdb
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\App.Config
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\GeTime.dll.config

@@ -44,7 +44,6 @@ as
 			on gc.idCommessa = c.id
 		where @idUtente = g.idUtenti and @nomeCommessa = c.nome
 go
-
 create Procedure InsertCommessa
 	@nome nvarchar (20),
 	@descrizione nvarchar(200),
@@ -87,7 +86,6 @@ as
 	if @@ERROR>0
 		throw 564464, 'Inserimento giornoCommese fallito', 19;
 go
-
 
 create procedure AddHF
 	@Ore int,

@@ -59,10 +59,3 @@ C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTime\obj\Debug
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CopyComplete
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.dll
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.pdb
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\App.Config
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.dll.config
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.dll
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.pdb
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.pdb
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.xml
-C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CopyComplete
