@@ -53,7 +53,7 @@ namespace GeTime.Tests
 		[ClassInitialize]
 		public static void InitClass(TestContext e)
 		{
-			ConntrollerTimeSheet.InitTest("TestDB", "TestDB.sql");
+			ConntrollerTimeSheet.InitTest("TestDB","TestDB.sql");
 		}
 
         [TestMethod]
