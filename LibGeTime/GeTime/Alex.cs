@@ -22,7 +22,7 @@ namespace GeTime {
                
                 connection.Close();
 
- 
-        
+
+        }
     }
 }
