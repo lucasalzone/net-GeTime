@@ -46,3 +46,7 @@ C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTime\bin\Debug\Libr
 C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.pdb
 C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.xml
 C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CopyComplete
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.pdb

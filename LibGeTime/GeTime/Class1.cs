@@ -33,28 +33,6 @@ namespace GeTime
             builder.InitialCatalog = DataB;
             return builder.ToString();
         }
-		// drago aggiungi il tuo CompilaHL
-		public bool CompilaHL(DateTime giorno, int HL, string commessa, int id) { 
-            SqlConnection con = new SqlConnection(GetConnection());
-            try{
-                con.Open();
-                SqlCommand cmd = new SqlCommand("AddHL",con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add("@giono",System.Data.SqlDbType.Date).Value = giorno;
-                cmd.Parameters.Add("@HType",System.Data.SqlDbType.Int).Value = HL;
-                cmd.Parameters.Add("@commessa",System.Data.SqlDbType.NVarChar).Value = commessa;
-                cmd.Parameters.Add("@idU",System.Data.SqlDbType.Int).Value = id;
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-            }catch(SqlException e){ 
-                throw new Exception (e.Message);
-            }catch(Exception e){ 
-                throw e;    
-            }finally{ 
-                con.Dispose();    
-            }
-			return false;
-        }
 		public static void InitTest(string DBName= "GeTime", string fileName = "CreaDatabase.sql") {
 			DB.ExecQFromFile(@"C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\"+fileName);
 			DB.ExecQFromFileProcedure(@"C:\Users\max\source\GitHubRepo\GeTime\net-GeTime\LibGeTime\SqlProcedure.sql", "go", DBName);
