@@ -44,7 +44,7 @@ namespace GeTime {
             }
         }
 
-        public void InsertCommessa(string nome, string descrizione, int capienza){ 
+        public void InsertCommessa( string nome, string descrizione, int capienza){ 
             SqlConnection con = new SqlConnection (GetConnection());
             try{ 
                  con.Open();
