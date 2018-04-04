@@ -65,19 +65,19 @@ as
 	Update giorni set Ore=@ore where id=@id;
 go
 
-
+go
 create procedure AddHL
 	@giorno date,
 	@nOre int,
-	@idU int,
-	@nomeCommit nvarchar(30)
+	@commessa nvarchar(30),
+	@idU int
 
 as
 	declare @idGiorno int ;
 	declare @idCommessa int;
-	set @idCommessa = (select top 1 c.id from commesse c where c.nome = @nomeCommit);
+	set @idCommessa = (select top 1 c.id from commesse c where c.nome = @commessa);
 
-	insert into Giorni (TipoOre,ore,giorno,idUtenti) values (1,@nOre,@giorno,@idU);
+	insert into Giorni (giorno,TipoOre,ore,idUtenti) values (@giorno,1,@nOre,@idU);
 	if @@ERROR>0
 		throw 52565,'Inserimento fallito',3;
 	set @idGiorno = IDENT_CURRENT ('giorni');
@@ -85,7 +85,7 @@ as
 	insert into giorniCommesse(idGiorno,idCommessa) values (@idGiorno,@idCommessa);
 	if @@ERROR>0
 		throw 564464, 'Inserimento giornoCommese fallito', 19;
-go;
+go
 
 
 create procedure AddHF

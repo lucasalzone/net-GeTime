@@ -68,7 +68,7 @@ namespace GeTime {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("AddHL",con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add("@giono",System.Data.SqlDbType.Date).Value = giorno;
+                cmd.Parameters.Add("@giorno",System.Data.SqlDbType.Date).Value = giorno.ToString("yyyy-MM-dd");
                 cmd.Parameters.Add("@nOre",System.Data.SqlDbType.Int).Value = HL;
                 cmd.Parameters.Add("@idU",System.Data.SqlDbType.Int).Value = id;
                 cmd.Parameters.Add("@commessa",System.Data.SqlDbType.NVarChar).Value = commessa;

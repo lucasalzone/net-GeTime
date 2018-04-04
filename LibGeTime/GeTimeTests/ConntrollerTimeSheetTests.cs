@@ -16,8 +16,12 @@ namespace GeTime.Tests
         [TestMethod()]
 		public void CompilaHLTest()
 		{
-			//bool cavallo = cont.CompilaHL(DateTime.Today, 5, 10);
-			//Assert.IsTrue(cavallo);
+            cont.InsertCommessa("Oggi","Oggi mi faccio i cazzi mia", 666);
+			bool cavallo = cont.CompilaHL(DateTime.Today, 5,"oggi", 111);
+			Assert.IsTrue(cavallo);
+			Giorno giorno= cont.SearchGiorno(DateTime.Today, 111);
+			Assert.IsNotNull(giorno);
+			Assert.IsTrue(giorno.HL == 5);
 		}
 
 		[TestMethod()]
