@@ -43,7 +43,6 @@ as
 			on gc.idGiorno = g.id
 		where c.nome = @nomeCommessa and g.idUtenti = @idUtente
 go
-
 create Procedure InsertCommessa
 	@nome nvarchar (20),
 	@descrizione nvarchar(200),
@@ -85,8 +84,7 @@ as
 	insert into giorniCommesse(idGiorno,idCommessa) values (@idGiorno,@idCommessa);
 	if @@ERROR>0
 		throw 564464, 'Inserimento giornoCommese fallito', 19;
-go;
-
+go
 
 create procedure AddHF
 	@Ore int,
