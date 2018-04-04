@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GeTimeModelStoreContainer" CdmEntityContainer="GeTimeEntities">
+    <EntitySetMapping Name="Commesse">
+      <EntityTypeMapping TypeName="GeTimeModel.Commesse">
+        <MappingFragment StoreEntitySet="Commesse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="capienza" ColumnName="capienza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Giorni">
+      <EntityTypeMapping TypeName="GeTimeModel.Giorni">
+        <MappingFragment StoreEntitySet="Giorni">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TipoOre" ColumnName="TipoOre" />
+          <ScalarProperty Name="ore" ColumnName="ore" />
+          <ScalarProperty Name="giorno" ColumnName="giorno" />
+          <ScalarProperty Name="idUtenti" ColumnName="idUtenti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giorniCommesse">
+      <EntityTypeMapping TypeName="GeTimeModel.giorniCommesse">
+        <MappingFragment StoreEntitySet="giorniCommesse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idGiorno" ColumnName="idGiorno" />
+          <ScalarProperty Name="idCommessa" ColumnName="idCommessa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipologiaOre">
+      <EntityTypeMapping TypeName="GeTimeModel.TipologiaOre">
+        <MappingFragment StoreEntitySet="TipologiaOre">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="acronimo" ColumnName="acronimo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddHF" FunctionName="GeTimeModel.Store.AddHF" />
+    <FunctionImportMapping FunctionImportName="AddHL" FunctionName="GeTimeModel.Store.AddHL" />
+    <FunctionImportMapping FunctionImportName="AddHM" FunctionName="GeTimeModel.Store.AddHM" />
+    <FunctionImportMapping FunctionImportName="AddHP" FunctionName="GeTimeModel.Store.AddHP" />
+    <FunctionImportMapping FunctionImportName="InsertCommessa" FunctionName="GeTimeModel.Store.InsertCommessa" />
+    <FunctionImportMapping FunctionImportName="SearchCommessa" FunctionName="GeTimeModel.Store.SearchCommessa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GeTimeModel.SearchCommessa_Result">
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="capienza" ColumnName="capienza" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="searchGiorno" FunctionName="GeTimeModel.Store.searchGiorno">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GeTimeModel.searchGiorno_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="giorno" ColumnName="giorno" />
+          <ScalarProperty Name="acronimo" ColumnName="acronimo" />
+          <ScalarProperty Name="ore" ColumnName="ore" />
+          <ScalarProperty Name="IdComessa" ColumnName="IdComessa" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+          <ScalarProperty Name="capienza" ColumnName="capienza" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
