@@ -7,24 +7,25 @@ namespace GeTime
 	public partial  class ConntrollerTimeSheet
 	{
 		public bool CompilaHM(DateTime giorno, int HM, int id){
-		return Compila(giorno, HM, "AddHM", id);
+			using (var db = new GeTimeEntities()) {
+				int controllo = db.AddHM(HM,giorno,id);
+				if(controllo > 0) { 
+					db.SaveChanges();	
+					return true; } else {
+					return false;
+				}
+			}
 		}
 		public bool CompilaHP(DateTime giorno,int HP,int id)
 		{
-			return Compila(giorno,HP,"AddHP",id);
-		}
-		public bool Compila(DateTime giorno, int HOre,string Htype, int id) {
-			parameters[0].Value = HOre;
-			parameters[1].Value = giorno.ToString("yyyy-MM-dd");
-			parameters[2].Value = id;
-			try {
-				int a = DB.ExecNonQProcedure(Htype, parameters,_dataB);
-				if (a == 0) {
+			using (var db=new GeTimeEntities()) {
+				int controllo = db.AddHP(HP,giorno,id);
+				if(controllo > 0) {
+					db.SaveChanges();
+					return true;
+				} else {
 					return false;
 				}
-				return true;
-			} catch (Exception) {
-				return false;
 			}
 		}
 	}

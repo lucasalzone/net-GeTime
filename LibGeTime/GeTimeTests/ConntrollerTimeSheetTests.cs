@@ -12,7 +12,7 @@ namespace GeTime.Tests
 	[TestClass()]
 	public class ConntrollerTimeSheetTests
 	{
-        private ConntrollerTimeSheet cont = new ConntrollerTimeSheet("TestDB");
+        private ConntrollerTimeSheet cont = new ConntrollerTimeSheet("GeTime");
         [TestMethod()]
 		public void CompilaHLTest()
 		{
@@ -53,7 +53,7 @@ namespace GeTime.Tests
 		[ClassInitialize]
 		public static void InitClass(TestContext e)
 		{
-			ConntrollerTimeSheet.InitTest("TestDB","TestDB.sql");
+			ConntrollerTimeSheet.InitTest();
 		}
 
         [TestMethod]

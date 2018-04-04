@@ -177,3 +177,10 @@ C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csproj.CopyComplete
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.dll
 C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.pdb
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\App.Config
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.dll
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.xml
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\maxfr\source\repos\net-GetTimeNew\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\GeTime.dll.config

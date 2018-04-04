@@ -9,7 +9,8 @@ namespace GeTime {
     public partial  class ConntrollerTimeSheet{
 
 		public bool CompilaHF(DateTime giorno, int HF, int id){
-			return Compila(giorno, HF, "AddHF", id);
+			//return Compila(giorno, HF, "AddHF", id);
+			return true;
 		}
     } 
 }
