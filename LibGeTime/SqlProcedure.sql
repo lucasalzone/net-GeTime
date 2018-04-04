@@ -32,16 +32,17 @@ as
 	set @idC = (select IDENT_CURRENT('Commesse'));
 		insert into giorniCommesse(idGiorno,idCommessa) values(@idG,@idC);
 go
-create procedure SearchCommessa
+
+create procedure SearchCommessa 
 	@nomeCommessa nvarchar(30),
 	@idUtente int
-as
-	select c.nome,c.descrizione,c.capienza from commesse c
+as 
+	select g.giorno, g.ore from giorni g
 		inner join giorniCommesse gc
-			on c.id = gc.idCommessa
-		inner join giorni g 
-			on gc.idGiorno = g.id
-		where c.nome = @nomeCommessa and g.idUtenti = @idUtente
+			on g.id = gc.idGiorno
+		inner join Commesse c
+			on gc.idCommessa = c.id
+		where @idUtente = g.idUtenti and @nomeCommessa = c.nome
 go
 
 create Procedure InsertCommessa
@@ -112,3 +113,4 @@ as
 	else
 		Update giorni set Ore=@ore where id=@id;
 go
+
