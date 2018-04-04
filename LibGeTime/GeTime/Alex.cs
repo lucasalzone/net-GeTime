@@ -21,6 +21,8 @@ namespace GeTime {
                 command.Dispose();
                
                 connection.Close();
-         }
-    } 
+
+ 
+        
+    }
 }
