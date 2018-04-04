@@ -17,15 +17,15 @@ namespace GeTime {
                 DataSet ds = new DataSet();
                 SqlCommand cmd = new SqlCommand("SearchCommessa",con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add("@nomeComemssa",System.Data.SqlDbType.NVarChar).Value = nomeCommessa;
-                cmd.Parameters.Add("@id",System.Data.SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@nomeCommessa",System.Data.SqlDbType.NVarChar).Value = nomeCommessa;
+                cmd.Parameters.Add("@idUtente",System.Data.SqlDbType.Int).Value = id;
                 SqlDataAdapter adp = new SqlDataAdapter();
-                adp.TableMappings.Add("Table","Giorno");
+                adp.TableMappings.Add("Table","Giorni");
                 adp.SelectCommand = cmd;
                 adp.Fill(ds);
-                foreach(DataRow dr in ds.Tables["Giorno"].Rows){ 
+                foreach(DataRow dr in ds.Tables["Giorni"].Rows){ 
                     DateTime data  = (DateTime) dr["giorno"]; 
-                    int tipoOre = (int) dr ["tipoOre"];
+                    //int tipoOre = (int) dr ["tipoOre"];
                     int ore = (int) dr["ore"];
                     Giorno g =new Giorno(data);
                     if(risGiorno.Contains(g))
@@ -68,7 +68,7 @@ namespace GeTime {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("AddHL",con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Add("@giono",System.Data.SqlDbType.Date).Value = giorno;
+                cmd.Parameters.Add("@giorno",System.Data.SqlDbType.Date).Value = giorno.ToString("yyyy-MM-dd");
                 cmd.Parameters.Add("@nOre",System.Data.SqlDbType.Int).Value = HL;
                 cmd.Parameters.Add("@idU",System.Data.SqlDbType.Int).Value = id;
                 cmd.Parameters.Add("@commessa",System.Data.SqlDbType.NVarChar).Value = commessa;

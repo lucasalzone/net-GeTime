@@ -16,8 +16,12 @@ namespace GeTime.Tests
         [TestMethod()]
 		public void CompilaHLTest()
 		{
-			//bool cavallo = cont.CompilaHL(DateTime.Today, 5, 10);
-			//Assert.IsTrue(cavallo);
+            cont.InsertCommessa("Oggi","Oggi mi faccio i cazzi mia", 666);
+			bool cavallo = cont.CompilaHL(DateTime.Today, 5,"oggi", 111);
+			Assert.IsTrue(cavallo);
+			Giorno giorno= cont.SearchGiorno(DateTime.Today, 111);
+			Assert.IsNotNull(giorno);
+			Assert.IsTrue(giorno.HL == 5);
 		}
 
 		[TestMethod()]
@@ -74,6 +78,17 @@ namespace GeTime.Tests
             Assert.IsTrue(giorno.ID_UTENTE == 200);
 			Assert.IsTrue(giorno.HL == 4);
 			Assert.IsTrue(giorno.Commesse.Count == 2);
+		}
+        [TestMethod]
+        public void SearchCommessaTest()
+        {
+            cont.InsertCommessa("Oggi","Oggi mi faccio i cazzi mia", 666);
+            bool cavallo1 = cont.CompilaHL(DateTime.Today, 1,"oggi", 111);
+            bool cavallo2 = cont.CompilaHL(new DateTime(2018,11,03), 3,"oggi", 111);
+            bool cavallo3 = cont.CompilaHL(new DateTime(2018,11,05), 4,"oggi", 111);
+            List<Giorno> giorni = cont.SearchCommessa("oggi",111);
+			Assert.IsNotNull(giorni);
+			Assert.IsTrue(giorni.Count == 3);
 		}
     }
 }
