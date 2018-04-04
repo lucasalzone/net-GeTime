@@ -42,11 +42,7 @@ as
 		inner join giorni g 
 			on gc.idGiorno = g.id
 		where c.nome = @nomeCommessa and g.idUtenti = @idUtente
-go;
-use getime
-select * from commesse
-select * from giorni
-exec SearchCommessa 'PrimaCommessa',32
+go
 
 create Procedure InsertCommessa
 	@nome nvarchar (20),
@@ -67,7 +63,7 @@ as
 		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti);
 	else
 	Update giorni set Ore=@ore where id=@id;
-go;
+go
 
 
 create procedure AddHL
@@ -96,7 +92,7 @@ create procedure AddHF
 	@Ore int,
 	@Giorno date,
 	@Utenti int
-
+as
 	declare @id int;
 	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 and idUtenti=@Utenti);
 	if @id is null 

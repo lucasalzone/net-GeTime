@@ -50,3 +50,8 @@ C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.
 C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
 C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.dll
 C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.pdb
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.pdb
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.xml
+C:\Users\Dragos\Desktop\TimeFinale\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CopyComplete
