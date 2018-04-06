@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GeTimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Commesse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
+          <Property Name="capienza" Type="int" />
+        </EntityType>
+        <EntityType Name="Giorni">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoOre" Type="int" />
+          <Property Name="ore" Type="int" />
+          <Property Name="giorno" Type="date" />
+          <Property Name="idUtenti" Type="int" />
+        </EntityType>
+        <EntityType Name="giorniCommesse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idGiorno" Type="int" />
+          <Property Name="idCommessa" Type="int" />
+        </EntityType>
+        <EntityType Name="TipologiaOre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descrizione" Type="nvarchar" MaxLength="50" />
+          <Property Name="acronimo" Type="char" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK__Giorni__TipoOre__25869641">
+          <End Role="TipologiaOre" Type="Self.TipologiaOre" Multiplicity="0..1" />
+          <End Role="Giorni" Type="Self.Giorni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipologiaOre">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Giorni">
+              <PropertyRef Name="TipoOre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__giorniCom__idCom__2B3F6F97">
+          <End Role="Commesse" Type="Self.Commesse" Multiplicity="0..1" />
+          <End Role="giorniCommesse" Type="Self.giorniCommesse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commesse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="giorniCommesse">
+              <PropertyRef Name="idCommessa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__giorniCom__idGio__2A4B4B5E">
+          <End Role="Giorni" Type="Self.Giorni" Multiplicity="0..1" />
+          <End Role="giorniCommesse" Type="Self.giorniCommesse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Giorni">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="giorniCommesse">
+              <PropertyRef Name="idGiorno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddHF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ore" Type="int" Mode="In" />
+          <Parameter Name="Giorno" Type="date" Mode="In" />
+          <Parameter Name="Utenti" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AddHL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="giorno" Type="date" Mode="In" />
+          <Parameter Name="nOre" Type="int" Mode="In" />
+          <Parameter Name="idU" Type="int" Mode="In" />
+          <Parameter Name="nomeCommit" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="AddHM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ore" Type="int" Mode="In" />
+          <Parameter Name="Giorno" Type="date" Mode="In" />
+          <Parameter Name="Utenti" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AddHP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ore" Type="int" Mode="In" />
+          <Parameter Name="Giorno" Type="date" Mode="In" />
+          <Parameter Name="Utenti" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertCommessa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nome" Type="nvarchar" Mode="In" />
+          <Parameter Name="descrizione" Type="nvarchar" Mode="In" />
+          <Parameter Name="capienza" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SearchCommessa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nomeCommessa" Type="nvarchar" Mode="In" />
+          <Parameter Name="idUtente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="searchGiorno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="giorno" Type="date" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="GeTimeModelStoreContainer">
+          <EntitySet Name="Commesse" EntityType="Self.Commesse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Giorni" EntityType="Self.Giorni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="giorniCommesse" EntityType="Self.giorniCommesse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipologiaOre" EntityType="Self.TipologiaOre" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Giorni__TipoOre__25869641" Association="Self.FK__Giorni__TipoOre__25869641">
+            <End Role="TipologiaOre" EntitySet="TipologiaOre" />
+            <End Role="Giorni" EntitySet="Giorni" />
+          </AssociationSet>
+          <AssociationSet Name="FK__giorniCom__idCom__2B3F6F97" Association="Self.FK__giorniCom__idCom__2B3F6F97">
+            <End Role="Commesse" EntitySet="Commesse" />
+            <End Role="giorniCommesse" EntitySet="giorniCommesse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__giorniCom__idGio__2A4B4B5E" Association="Self.FK__giorniCom__idGio__2A4B4B5E">
+            <End Role="Giorni" EntitySet="Giorni" />
+            <End Role="giorniCommesse" EntitySet="giorniCommesse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GeTimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Commesse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="capienza" Type="Int32" />
+          <NavigationProperty Name="giorniCommesse" Relationship="Self.FK__giorniCom__idCom__2B3F6F97" FromRole="Commesse" ToRole="giorniCommesse" />
+        </EntityType>
+        <EntityType Name="Giorni">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoOre" Type="Int32" />
+          <Property Name="ore" Type="Int32" />
+          <Property Name="giorno" Type="DateTime" Precision="0" />
+          <Property Name="idUtenti" Type="Int32" />
+          <NavigationProperty Name="TipologiaOre" Relationship="Self.FK__Giorni__TipoOre__25869641" FromRole="Giorni" ToRole="TipologiaOre" />
+          <NavigationProperty Name="giorniCommesse" Relationship="Self.FK__giorniCom__idGio__2A4B4B5E" FromRole="Giorni" ToRole="giorniCommesse" />
+        </EntityType>
+        <EntityType Name="giorniCommesse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idGiorno" Type="Int32" />
+          <Property Name="idCommessa" Type="Int32" />
+          <NavigationProperty Name="Commesse" Relationship="Self.FK__giorniCom__idCom__2B3F6F97" FromRole="giorniCommesse" ToRole="Commesse" />
+          <NavigationProperty Name="Giorni" Relationship="Self.FK__giorniCom__idGio__2A4B4B5E" FromRole="giorniCommesse" ToRole="Giorni" />
+        </EntityType>
+        <EntityType Name="TipologiaOre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descrizione" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="acronimo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Giorni" Relationship="Self.FK__Giorni__TipoOre__25869641" FromRole="TipologiaOre" ToRole="Giorni" />
+        </EntityType>
+        <Association Name="FK__giorniCom__idCom__2B3F6F97">
+          <End Role="Commesse" Type="Self.Commesse" Multiplicity="0..1" />
+          <End Role="giorniCommesse" Type="Self.giorniCommesse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commesse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="giorniCommesse">
+              <PropertyRef Name="idCommessa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Giorni__TipoOre__25869641">
+          <End Role="TipologiaOre" Type="Self.TipologiaOre" Multiplicity="0..1" />
+          <End Role="Giorni" Type="Self.Giorni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipologiaOre">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Giorni">
+              <PropertyRef Name="TipoOre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__giorniCom__idGio__2A4B4B5E">
+          <End Role="Giorni" Type="Self.Giorni" Multiplicity="0..1" />
+          <End Role="giorniCommesse" Type="Self.giorniCommesse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Giorni">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="giorniCommesse">
+              <PropertyRef Name="idGiorno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GeTimeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Commesse" EntityType="Self.Commesse" />
+          <EntitySet Name="Giorni" EntityType="Self.Giorni" />
+          <EntitySet Name="giorniCommesse" EntityType="Self.giorniCommesse" />
+          <EntitySet Name="TipologiaOre" EntityType="Self.TipologiaOre" />
+          <AssociationSet Name="FK__giorniCom__idCom__2B3F6F97" Association="Self.FK__giorniCom__idCom__2B3F6F97">
+            <End Role="Commesse" EntitySet="Commesse" />
+            <End Role="giorniCommesse" EntitySet="giorniCommesse" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Giorni__TipoOre__25869641" Association="Self.FK__Giorni__TipoOre__25869641">
+            <End Role="TipologiaOre" EntitySet="TipologiaOre" />
+            <End Role="Giorni" EntitySet="Giorni" />
+          </AssociationSet>
+          <AssociationSet Name="FK__giorniCom__idGio__2A4B4B5E" Association="Self.FK__giorniCom__idGio__2A4B4B5E">
+            <End Role="Giorni" EntitySet="Giorni" />
+            <End Role="giorniCommesse" EntitySet="giorniCommesse" />
+          </AssociationSet>
+          <FunctionImport Name="AddHF">
+            <Parameter Name="Ore" Mode="In" Type="Int32" />
+            <Parameter Name="Giorno" Mode="In" Type="DateTime" />
+            <Parameter Name="Utenti" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AddHL">
+            <Parameter Name="giorno" Mode="In" Type="DateTime" />
+            <Parameter Name="nOre" Mode="In" Type="Int32" />
+            <Parameter Name="idU" Mode="In" Type="Int32" />
+            <Parameter Name="nomeCommit" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddHM">
+            <Parameter Name="Ore" Mode="In" Type="Int32" />
+            <Parameter Name="Giorno" Mode="In" Type="DateTime" />
+            <Parameter Name="Utenti" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AddHP">
+            <Parameter Name="Ore" Mode="In" Type="Int32" />
+            <Parameter Name="Giorno" Mode="In" Type="DateTime" />
+            <Parameter Name="Utenti" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCommessa">
+            <Parameter Name="nome" Mode="In" Type="String" />
+            <Parameter Name="descrizione" Mode="In" Type="String" />
+            <Parameter Name="capienza" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SearchCommessa" ReturnType="Collection(GeTimeModel.SearchCommessa_Result)">
+            <Parameter Name="nomeCommessa" Mode="In" Type="String" />
+            <Parameter Name="idUtente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="searchGiorno" ReturnType="Collection(GeTimeModel.searchGiorno_Result)">
+            <Parameter Name="giorno" Mode="In" Type="DateTime" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SearchCommessa_Result">
+          <Property Type="String" Name="nome" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descrizione" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="capienza" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="searchGiorno_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="DateTime" Name="giorno" Nullable="true" />
+          <Property Type="String" Name="acronimo" Nullable="true" MaxLength="2" />
+          <Property Type="Int32" Name="ore" Nullable="true" />
+          <Property Type="Int32" Name="id1" Nullable="true" />
+          <Property Type="String" Name="nome" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descrizione" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="capienza" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GeTimeModelStoreContainer" CdmEntityContainer="GeTimeEntities">
+          <EntitySetMapping Name="Commesse">
+            <EntityTypeMapping TypeName="GeTimeModel.Commesse">
+              <MappingFragment StoreEntitySet="Commesse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="capienza" ColumnName="capienza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Giorni">
+            <EntityTypeMapping TypeName="GeTimeModel.Giorni">
+              <MappingFragment StoreEntitySet="Giorni">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TipoOre" ColumnName="TipoOre" />
+                <ScalarProperty Name="ore" ColumnName="ore" />
+                <ScalarProperty Name="giorno" ColumnName="giorno" />
+                <ScalarProperty Name="idUtenti" ColumnName="idUtenti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="giorniCommesse">
+            <EntityTypeMapping TypeName="GeTimeModel.giorniCommesse">
+              <MappingFragment StoreEntitySet="giorniCommesse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idGiorno" ColumnName="idGiorno" />
+                <ScalarProperty Name="idCommessa" ColumnName="idCommessa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipologiaOre">
+            <EntityTypeMapping TypeName="GeTimeModel.TipologiaOre">
+              <MappingFragment StoreEntitySet="TipologiaOre">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="acronimo" ColumnName="acronimo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddHF" FunctionName="GeTimeModel.Store.AddHF" />
+          <FunctionImportMapping FunctionImportName="AddHL" FunctionName="GeTimeModel.Store.AddHL" />
+          <FunctionImportMapping FunctionImportName="AddHM" FunctionName="GeTimeModel.Store.AddHM" />
+          <FunctionImportMapping FunctionImportName="AddHP" FunctionName="GeTimeModel.Store.AddHP" />
+          <FunctionImportMapping FunctionImportName="InsertCommessa" FunctionName="GeTimeModel.Store.InsertCommessa" />
+          <FunctionImportMapping FunctionImportName="SearchCommessa" FunctionName="GeTimeModel.Store.SearchCommessa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GeTimeModel.SearchCommessa_Result">
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="capienza" ColumnName="capienza" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="searchGiorno" FunctionName="GeTimeModel.Store.searchGiorno">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GeTimeModel.searchGiorno_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="giorno" ColumnName="giorno" />
+                <ScalarProperty Name="acronimo" ColumnName="acronimo" />
+                <ScalarProperty Name="ore" ColumnName="ore" />
+                <ScalarProperty Name="id1" ColumnName="id1" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+                <ScalarProperty Name="capienza" ColumnName="capienza" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nessuno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
