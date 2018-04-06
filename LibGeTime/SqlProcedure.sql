@@ -26,10 +26,6 @@ as
 			on gc.idCommessa = c.id
 		where c.id = @cCommessa;
 go;
-use getime
-select * from commesse
-select * from giorni
-exec SearchCommessa 'PrimaCommessa',32
 
 create Procedure InsertCommessa
 	@nome nvarchar (20),
