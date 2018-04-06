@@ -42,20 +42,12 @@ namespace GeTime
 		public void ExecP(string pro){
 			DB.ExecNonQProcedure(pro,null,_dataB);
 		}
-
-		public bool CompilaHM(DateTime giorno, int HM, int id) {
-			throw new NotImplementedException();
-		}
-
-		public bool CompilaHP(DateTime giorno, int HP, int id) {
-			throw new NotImplementedException();
-		}
 	}
 
     public enum  HType{HP,HF,HM};
     public partial class Giorno
     {
-        private int _id;
+        private List<int> _id;
         private int _id_utente;
         private int [] ore = new int[3];
         private DateTime data;
@@ -64,14 +56,14 @@ namespace GeTime
 		private List<Commessa> commesse;
 
         public int ID_UTENTE {get { return _id_utente; }set { _id_utente = value; }}
-        public int ID { get { return _id; }set { _id = value; }}
+        public List<int> ID { get { return _id; }set { _id = value; }}
         public int HL { get{ return TotCom();  } }
 		public int[] Ore { get => ore; set => ore = value; }
 		public List<Commessa> Commesse { get => commesse;}
         
 
         public Giorno(DateTime data){ this.data = data;}
-        public Giorno(DateTime data, int HP, int HM, int HF, int id, int id_utente){
+        public Giorno(DateTime data, int HP, int HM, int HF, List<int> id, int id_utente){
             this.data = data;
             Ore[(int)HType.HP] = HP;
             Ore[(int)HType.HM] = HM;

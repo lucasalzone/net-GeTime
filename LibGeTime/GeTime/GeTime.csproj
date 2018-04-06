@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\..\repos\net-Nauman\Esame27\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\..\..\repos\net-Nauman\Esame27\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="LibreriaDB">
       <HintPath>..\..\..\..\..\..\Desktop\C#\LibreriaDB\LibreriaDB\bin\Debug\LibreriaDB.dll</HintPath>
     </Reference>
