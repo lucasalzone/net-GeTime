@@ -8,29 +8,17 @@ as
 				left join TipologiaOre T on G.TipoOre = T.id
 	where @id = G.idUtenti and @giorno = G.giorno;
 go
-create procedure SearchCommessa
-	@nomeCommessa nvarchar,
+create procedure SearchCommessa 
+	@nomeCommessa nvarchar(30),
 	@idUtente int
-as
-	declare @cCommessa int
-	set @cCommessa = (select id from commessa c 
-							inner join giornoCommessa gc
-								on c.id = gc.idCommessa
-							inner join giorno g
-								on gc.idGiorno = g.giorno
-							where c.Nome = @nomeCommessa and g.idUtente = @idUtente);
-	select * from giorni g 
-		inner join giornoCommessa gc
-			on g.Id = gc.idGiorno
-		inner join commessa c
+as 
+	select g.giorno, g.ore from giorni g
+		inner join giorniCommesse gc
+			on g.id = gc.idGiorno
+		inner join Commesse c
 			on gc.idCommessa = c.id
-		where c.id = @cCommessa;
-go;
-use getime
-select * from commesse
-select * from giorni
-exec SearchCommessa 'PrimaCommessa',32
-
+		where @idUtente = g.idUtenti and @nomeCommessa = c.nome
+go
 create Procedure InsertCommessa
 	@nome nvarchar (20),
 	@descrizione nvarchar(200),
@@ -56,14 +44,15 @@ go;
 create procedure AddHL
 	@giorno date,
 	@nOre int,
-	@idU int,
-	@nomeCommit nvarchar(30)
+	@commessa nvarchar(30),
+	@idU int
+
 as
 	declare @idGiorno int ;
 	declare @idCommessa int;
-	set @idCommessa = (select top 1 c.id from commesse c where c.nome = @nomeCommit);
+	set @idCommessa = (select top 1 c.id from commesse c where c.nome = @commessa);
 
-	insert into Giorni (TipoOre,ore,giorno,idUtenti) values (1,@nOre,@giorno,@idU);
+	insert into Giorni (giorno,TipoOre,ore,idUtenti) values (@giorno,1,@nOre,@idU);
 	if @@ERROR>0
 		throw 52565,'Inserimento fallito',3;
 	set @idGiorno = IDENT_CURRENT ('giorni');
@@ -71,7 +60,7 @@ as
 	insert into giorniCommesse(idGiorno,idCommessa) values (@idGiorno,@idCommessa);
 	if @@ERROR>0
 		throw 564464, 'Inserimento giornoCommese fallito', 19;
-go;
+go
 
 create procedure AddHF
 @Ore int,
