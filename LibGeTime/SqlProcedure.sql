@@ -26,21 +26,18 @@ create Procedure InsertCommessa
 as
 	insert into commesse (nome,descrizione,capienza) values (@nome,@descrizione,@capienza)
 go
-
 create Procedure AddHM
-@Ore int,
-@Giorno date,
-@Utenti int
+	@Ore int,
+	@Giorno date,
+	@Utenti int
 as
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 )
+	declare @id int;
+	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 4 and idUtenti=@Utenti);
 	if @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti) 
+		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (4,@ore,@Giorno,@Utenti);
 	else
 	Update giorni set Ore=@ore where id=@id;
-go;
-
-
+go
 create procedure AddHL
 	@giorno date,
 	@nOre int,
@@ -61,29 +58,27 @@ as
 	if @@ERROR>0
 		throw 564464, 'Inserimento giornoCommese fallito', 19;
 go
-
 create procedure AddHF
-@Ore int,
-@Giorno date,
-@Utenti int
+	@Ore int,
+	@Giorno date,
+	@Utenti int
 as
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 )
-	if  @id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (2,@ore,@Giorno,@Utenti) 
+	declare @id int;
+	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 2 and idUtenti=@Utenti);
+	if @id is null 
+		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (2,@ore,@Giorno,@Utenti);
 	else
-	Update giorni set Ore=@ore where id=@id;
-go;
-
+		Update giorni set Ore=@ore where id=@id;
+go
 create procedure AddHP
-@Ore int,
-@Giorno date,
-@Utenti int
+	@Ore int,
+	@Giorno date,
+	@Utenti int
 as
-declare @id int ;
-set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 )
-	if id is null 
-	Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti) 
+	declare @id int;
+	set @id = (Select top 1 id from Giorni where giorno=@giorno and TipoOre = 3 and idUtenti=@Utenti);
+	if @id is null 
+		Insert into giorni (TipoOre,Ore,Giorno,idUtenti) values (3,@ore,@Giorno,@Utenti); 
 	else
-	Update giorni set Ore=@ore where id=@id;
-go;
+		Update giorni set Ore=@ore where id=@id;
+go

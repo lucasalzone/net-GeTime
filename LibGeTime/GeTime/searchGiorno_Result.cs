@@ -17,7 +17,7 @@ namespace GeTime
         public Nullable<System.DateTime> giorno { get; set; }
         public string acronimo { get; set; }
         public Nullable<int> ore { get; set; }
-        public Nullable<int> id1 { get; set; }
+        public Nullable<int> IdComessa { get; set; }
         public string nome { get; set; }
         public string descrizione { get; set; }
         public Nullable<int> capienza { get; set; }

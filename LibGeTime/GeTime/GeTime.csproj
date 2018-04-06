@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LibreriaDB">
+      <HintPath>..\..\..\..\..\..\Desktop\C#\LibreriaDB\LibreriaDB\bin\Debug\LibreriaDB.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,10 +47,70 @@
   <ItemGroup>
     <Compile Include="Alex.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Commesse.cs">
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
     <Compile Include="Drago.cs" />
+    <Compile Include="EmntityGeTime.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmntityGeTime.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmntityGeTime.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmntityGeTime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmntityGeTime.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Giorni.cs">
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
+    <Compile Include="giorniCommesse.cs">
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
     <Compile Include="massimo.cs" />
     <Compile Include="nauman.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchCommessa_Result.cs">
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
+    <Compile Include="searchGiorno_Result.cs">
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipologiaOre.cs">
+      <DependentUpon>EmntityGeTime.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EmntityGeTime.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmntityGeTime.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="EmntityGeTime.edmx.diagram">
+      <DependentUpon>EmntityGeTime.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EmntityGeTime.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmntityGeTime.edmx</DependentUpon>
+      <LastGenOutput>EmntityGeTime.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EmntityGeTime.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmntityGeTime.edmx</DependentUpon>
+      <LastGenOutput>EmntityGeTime.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

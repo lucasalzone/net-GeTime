@@ -50,3 +50,13 @@ C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csprojR
 C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
 C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.dll
 C:\Users\maxfr\source\repos\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csprojResolveAssemblyReference.cache
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CoreCompileInputs.cache
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.pdb
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.pdb
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.pdb
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.xml
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CopyComplete

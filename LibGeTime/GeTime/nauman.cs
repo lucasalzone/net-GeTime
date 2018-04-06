@@ -30,7 +30,7 @@ namespace GeTime {
 							giorno.Ore[(int)HType.HP] = data.GetInt32(3);
 							break;
 						case "HL":
-							giorno.Ore[(int)HType.H] = data.GetInt32(3);
+							//giorno.Ore[(int)HType.H] = data.GetInt32(3);
 							break;
 					}
 				}
