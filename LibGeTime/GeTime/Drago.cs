@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace GeTime {
     public partial class ConntrollerTimeSheet{
+        /*
         public Giorno Converti(SearchCommessa1_Result fun) {
             DateTime data  = (DateTime) fun.giorno; 
             int ore =(int) fun.ore;
@@ -39,8 +40,8 @@ namespace GeTime {
                     return false;    
                 }
             }
-        }
-        /*
+        }*/
+      
         public List<Giorno> SearchCommessa(string nomeCommessa,int id){ 
             List<Giorno> risGiorno = null;
             SqlConnection con = new SqlConnection(GetConnection());
@@ -76,8 +77,8 @@ namespace GeTime {
                 con.Dispose();    
             }
         }
-        */
-        /*
+       
+        
         public void InsertCommessa(string nome, string descrizione, int capienza){ 
             SqlConnection con = new SqlConnection (GetConnection());
             try{ 
@@ -95,8 +96,8 @@ namespace GeTime {
                 con.Dispose();    
             }
         } 
-        */
-        /*
+       
+       
         public bool CompilaHL(DateTime giorno, int HL,string commessa,int id){ 
             SqlConnection con = new SqlConnection(GetConnection());
             try{
@@ -118,7 +119,7 @@ namespace GeTime {
                 con.Dispose();    
             }
         } 
-        */
+        
     }     
     public partial class Giorno{ 
         public Giorno(DateTime data, int ore){ 
