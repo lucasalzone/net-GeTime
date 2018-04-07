@@ -159,3 +159,10 @@ C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debu
 C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\LibreriaDB.pdb
 C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\LibreriaDB.xml
 C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\obj\Debug\GeTimeTests.csproj.CopyComplete
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\GeTime.dll.config
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.xml
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\App.Config
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTimeTests\bin\Debug\EntityFramework.SqlServer.xml

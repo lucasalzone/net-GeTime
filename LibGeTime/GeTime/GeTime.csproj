@@ -98,7 +98,9 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="EmntityGeTime.edmx.diagram">
       <DependentUpon>EmntityGeTime.edmx</DependentUpon>
     </None>

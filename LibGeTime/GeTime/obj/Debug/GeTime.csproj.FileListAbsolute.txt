@@ -60,3 +60,10 @@ C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\Lib
 C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.pdb
 C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\LibreriaDB.xml
 C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\obj\Debug\GeTime.csproj.CopyComplete
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\GeTime.dll.config
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\EntityFramework.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\EntityFramework.xml
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\max\source\GitHubRepo\GeTime2\net-GeTime\LibGeTime\GeTime\bin\Debug\App.Config
